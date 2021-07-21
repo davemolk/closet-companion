@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-lg">
+    <div class="row">
+        <div class="col-6">
+            <img class="img-fluid" alt="Responsive image of clothes" src="{% static 'images/door.jpg' %}">
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <h3>
+                    <div class="display-4">My Closet Companion:</div>
+                </h3>
+                <h5>
+                    <div class="fst-italic fw-lighter text-muted">(almost as good as shopping)</div>
+                </h5>
+                <br>
+                <h3>
+                    <div class="fw-light text-muted">
+                        <div class="my-4"><h2>So, what's in your closet?</h2></div>
+                        <br>
+                        <div>Click on "My Closet" in the Navbar to check out your threads. Make sure to update regularly via "Add Item".</div>
+                        <hr>
+                        <div class="my-4"><h2>Ooh, what's that?</h2></div>
+                        <br>
+                        <div>Once in your closet, click on "More Details" to see full info and access edit and delete buttons.</div>
+                    </div>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% comment %} <img src="{% static 'images/door.jpg' %}"> {% endcomment %}
