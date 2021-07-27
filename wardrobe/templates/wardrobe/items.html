@@ -1,0 +1,179 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Welcome to Your Closet</h2>
+        <p class="lead text-muted">Click on a category below or just start scrolling.</p>
+      </div>
+    </div>
+
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-lg">
+      <!-- toggle button for mobile nav -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- navbar links -->
+      <div class="collapse navbar-collapse justify-content-center align-center" id="main-nav">
+        <ul class="navbar-nav">
+           <li class="nav-item">
+             <a class="nav-link" href="#tops">Tops</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#bottoms">Bottoms</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#dresses">Dresses</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#shoes">Shoes</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#outerwear">Outerwear</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#handbags">Handbags</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="tops" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Tops</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for top in tops %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{top.image.url}}" class="card-img-top">
+              <a href="/items/{{ top.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="bottoms" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Bottoms</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for bottom in bottoms %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{bottom.image.url}}" class="card-img-top">
+              <a href="/items/{{ bottom.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dresses" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Dresses</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for dress in dresses %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{dress.image.url}}" class="card-img-top">
+              <a href="/items/{{ dress.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shoes" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Shoes</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for shoe in shoes %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{shoe.image.url}}" class="card-img-top">
+              <a href="/items/{{ shoe.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="outerwear" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Outerwear</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for coat in coats %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{coat.image.url}}" class="card-img-top">
+              <a href="/items/{{ coat.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="handbags" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Handbags</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">    
+      {% for handbag in handbags %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{handbag.image.url}}" class="card-img-top">
+              <a href="/items/{{ handbag.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

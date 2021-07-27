@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-lg">
+  <div class="text-center">
+    <h2>Let's Take a Closer Look</h2>
+  </div>
+  <div class="row my-5 g-5 justify-content-around align-items-center">
+    <div class="col-6 col-lg-4">
+      <img src="{{item.image.url }}" class="img-fluid" alt="item">
+    </div>
+    <div class="col-6 col-lg-4">
+      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          {%if item.user == user %}
+            <div class="row align-items-center">
+              <a class="btn btn-outline-secondary btn-sm" href="{% url 'items_update' item.id %}">Update Item</a>
+              <a class="btn btn-outline-secondary btn-sm" href="{% url 'items_delete' item.id %}">Delete Item</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+
+{% endblock %}
