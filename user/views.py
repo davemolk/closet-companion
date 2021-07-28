@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Profile,
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -11,8 +12,32 @@ def index(request):
     return render(request, 'index.html')
 
 def loginUser(request):
-    pass
+    if request.user.is_authenticated:
+        return redirect('account')
+        
+    if request.method == 'POST':
+        username = request.POST['username'].lower()
+        password = request.POST['password']
 
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'Username does not exist')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('account')
+        else:
+            messages.error(request, 'Username OR password is incorrect')
+
+    return render(request, 'user/login.html')
+
+def logoutUser(request):
+    logout(request)
+    messages.success(request, 'You have been logged out')
+    return redirect('index')
 
 def signupUser(request):
     form = UserCreationForm()
