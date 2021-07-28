@@ -21,7 +21,7 @@ class Item(models.Model):
         (handbag, 'handbag'),
     ]
 
-    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=300, blank=True, null=True)
     type = models.CharField(max_length=100, choices = item_type, default=shoe)
