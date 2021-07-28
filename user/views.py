@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Profile,
 
@@ -22,11 +23,11 @@ def signupUser(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-            #messages.success(request, 'User account created!')
+            messages.success(request, 'User account created!')
             login(request, user)
             return redirect('account')
         else:
-            #messages.error(request, 'An error has occurred during registration')
+            messages.error(request, 'An error has occurred during registration')
             return redirect('signup')
     context = {'form': form}
     return render(request, 'user/signup.html', context)
