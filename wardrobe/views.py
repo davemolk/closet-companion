@@ -45,6 +45,7 @@ def createItem(request):
     form = ItemForm()
 
     if request.method == 'POST':
+        newtags = request.POST.get('newtags').replace(',', " ").split()
         form = ItemForm(request.POST, request.FILES)
         print('data:', request.POST)
         if form.is_valid():
@@ -52,7 +53,11 @@ def createItem(request):
             item.owner = profile
             item.save()
 
-        return redirect('items')
+            for tag in newtags:
+                tag, created = Tag.objects.get_or_create(name=tag)
+                item.tags.add(tag)
+
+            return redirect('items')
     
     context = {'form': form}
     return render(request, 'wardrobe/item_form.html', context)
@@ -67,9 +72,13 @@ def updateItem(request, pk):
     form = ItemForm(instance=item)
 
     if request.method == 'POST':
+        newtags = request.POST.get('newtags').replace(',', " ").split()
         form = ItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             item = form.save()
+            for tag in newtags:
+                tag, created = Tag.objects.get_or_create(name=tag)
+                item.tags.add(tag)
             return redirect('items')
 
     context = {'page': page, 'form': form, 'tags': tags, 'item': item}
