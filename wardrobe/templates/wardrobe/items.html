@@ -3,22 +3,22 @@
 
 {% block content %}
 
-    <div class="container-lg">
-      <div class="text-center">
-        <h2>Welcome to Your Closet</h2>
-        <p class="lead text-muted">Click on a category below or just start scrolling.</p>
-      </div>
+  <div class="container-lg">
+    <div class="text-center">
+      <h2>Welcome to Your Closet</h2>
+      <p class="lead text-muted">Click on a category below or use the search field to find something specific. Or just start scrolling!</p>
     </div>
+  </div>
 
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-lg">
       <!-- toggle button for mobile nav -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#items-nav" aria-controls="items-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- navbar links -->
-      <div class="collapse navbar-collapse justify-content-center align-center" id="main-nav">
+      <div class="collapse navbar-collapse justify-content-center align-center" id="items-nav">
         <ul class="navbar-nav">
           {% if tops %}
           <li class="nav-item">
@@ -59,6 +59,24 @@
       </div>
     </div>
   </nav>
+
+  <section class="hero-section text-center">
+      <div class="container container--narrow">
+
+          <div class="hero-section__search">
+              <form id='searchForm' class="form" action="" method="GET">
+                  <div class="form__field">
+                      <label for="formInput#search">Search:</label>
+                      <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                          placeholder="Deets here" value="" />
+                  </div>
+
+                  <input class="btn btn-outline-secondary" type="submit" value="Search" />
+                  <input class="btn btn-outline-secondary" type="submit" value="Reset" name='' />
+              </form>
+          </div>
+      </div>
+  </section>
 
   {% if tops %}
   <section id="tops" class="bg-light texture">

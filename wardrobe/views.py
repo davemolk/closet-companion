@@ -3,14 +3,14 @@ from .models import Item, Tag
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ItemForm
+from .utils import searchItems
 
 # Create your views here.
 
 
 @login_required(login_url="login")
 def items(request):
-    profile = request.user.profile
-    items = profile.item_set.all()
+    items, search_query = searchItems(request)
     tops = items.filter(type='top')
     bottoms = items.filter(type='bottom')
     dresses = items.filter(type='dress')
