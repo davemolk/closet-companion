@@ -13,14 +13,21 @@
     <div class="col-6 col-lg-4">
       <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <p class="card-text">{{ item.description }}</p>
-          {%if item.user == user %}
-            <div class="row align-items-center">
-              <a class="btn btn-outline-secondary btn-sm" href="{% url 'items_update' item.id %}">Update Item</a>
-              <a class="btn btn-outline-secondary btn-sm" href="{% url 'items_delete' item.id %}">Delete Item</a>
-            </div>
-          {% endif %}
+          <h5 class="card-title">Name: {{ item.name }}</h5>
+          <p class="card-text">Description: {{ item.description }}</p>
+          <div>Tags:
+          {% for tag in tags %}
+            <span class="tag">
+              <small>{{ tag }}</small>
+            </span>
+          {% endfor %}
+          </div>
+    
+          <div class="row align-items-center">
+            <a class="btn btn-outline-secondary btn-sm" href="{% url 'update-item' item.id %}">Update Item</a>
+            <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-item' item.id %}">Delete Item</a>
+          </div>
+
         </div>
       </div>  
     </div>

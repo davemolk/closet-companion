@@ -8,7 +8,13 @@
   <div class="text-center">
     <h2>Tell Us About Your Item</h2>
   </div>
+  
   <div class="row justify-content-center my-5">
+    {% if page == 'update' %}
+    <div class="col-lg-4 mb-5">
+      <img src="{{item.image.url }}" class="img-fluid" alt="item">
+    </div>
+    {% endif %}
     <div class="col-lg-6">
       <form class="shadow p-3 mb-5 bg-body rounded" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}

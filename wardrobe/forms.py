@@ -7,6 +7,13 @@ class ItemForm(ModelForm):
     class Meta:
         model = Item
         fields = ['name', 'description', 'type', 'image', 'tags', 'sell']
+        labels = {
+            'name': 'Item name',
+            'description': 'Item description',
+            'type': 'Item type',
+            'image': 'Item image', 
+            'sell': 'For sale?'
+        }
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }

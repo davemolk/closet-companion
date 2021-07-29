@@ -20,32 +20,47 @@
       <!-- navbar links -->
       <div class="collapse navbar-collapse justify-content-center align-center" id="main-nav">
         <ul class="navbar-nav">
-           <li class="nav-item">
-             <a class="nav-link" href="#tops">Tops</a>
-           </li>
-           <li class="nav-item">
+          {% if tops %}
+          <li class="nav-item">
+            <a class="nav-link" href="#tops">Tops</a>
+          </li>
+          {% endif %}
+          {% if bottoms %}
+          <li class="nav-item">
             <a class="nav-link" href="#bottoms">Bottoms</a>
           </li>
-           <li class="nav-item">
+          {% endif %}
+          {% if dresses %}
+          <li class="nav-item">
             <a class="nav-link" href="#dresses">Dresses</a>
           </li>
-           <li class="nav-item">
+          {% endif %}
+          {% if shoes %}
+          <li class="nav-item">
             <a class="nav-link" href="#shoes">Shoes</a>
           </li>
-           <li class="nav-item">
+          {% endif %}
+          {% if coats %}
+          <li class="nav-item">
             <a class="nav-link" href="#outerwear">Outerwear</a>
           </li>
-           <li class="nav-item">
+          {% endif %}
+          {% if handbags %}
+          <li class="nav-item">
             <a class="nav-link" href="#handbags">Handbags</a>
           </li>
+          {% endif %}
+          {% if others %}
           <li class="nav-item">
             <a class="nav-link" href="#other">Miscellaneous</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
   </nav>
 
+  {% if tops %}
   <section id="tops" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -69,7 +84,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if bottoms %}
   <section id="bottoms" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -91,7 +108,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if dresses %}
   <section id="dresses" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -113,7 +132,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shoes %}
   <section id="shoes" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -135,7 +156,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if coats %}
   <section id="outerwear" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -157,7 +180,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if handbags %}
   <section id="handbags" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -179,7 +204,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if others %}
   <section id="other" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
@@ -201,6 +228,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
 
 {% endblock %}

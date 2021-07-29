@@ -51,7 +51,7 @@ def createItem(request):
             item.owner = profile
             item.save()
 
-        return redirect('account')
+        return redirect('items')
     
     context = {'form': form}
     return render(request, 'wardrobe/item_form.html', context)
@@ -59,6 +59,7 @@ def createItem(request):
 
 @login_required(login_url="login")
 def updateItem(request, pk):
+    page = 'update'
     profile = request.user.profile
     item = profile.item_set.get(id=pk)
     form = ItemForm(instance=item)
@@ -67,9 +68,9 @@ def updateItem(request, pk):
         form = ItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             item = form.save()
-            return redirect('account')
+            return redirect('items')
 
-    context = {'form': form, 'item': item}
+    context = {'page': page, 'form': form, 'item': item}
     return render(request, 'wardrobe/item_form.html', context)
 
 
@@ -80,7 +81,7 @@ def deleteItem(request, pk):
 
     if request.method == 'POST':
         item.delete()
-        return redirect('account')
+        return redirect('items')
     
     context = {'object': item}
     return render(request, 'delete_template.html', context)
