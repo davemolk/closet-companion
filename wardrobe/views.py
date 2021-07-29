@@ -62,6 +62,7 @@ def updateItem(request, pk):
     page = 'update'
     profile = request.user.profile
     item = profile.item_set.get(id=pk)
+    tags = item.tags.all()
     form = ItemForm(instance=item)
 
     if request.method == 'POST':
@@ -70,7 +71,7 @@ def updateItem(request, pk):
             item = form.save()
             return redirect('items')
 
-    context = {'page': page, 'form': form, 'item': item}
+    context = {'page': page, 'form': form, 'tags': tags, 'item': item}
     return render(request, 'wardrobe/item_form.html', context)
 
 

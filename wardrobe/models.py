@@ -52,4 +52,4 @@ class Outfit(models.Model):
     description = models.TextField(max_length=300, blank=True, null=True)
     
     def __str__(self):
-        return self.namecd
+        return self.name
