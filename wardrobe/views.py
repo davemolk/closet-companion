@@ -6,14 +6,11 @@ from .forms import ItemForm
 
 # Create your views here.
 
-@login_required(login_url="login")
-def items(request):
-    profile = request.user.profile
-    pass
-
 
 #filter by user
-def items_index(request):
+def items(request):
+    profile = request.user.profile
+    items = profile.item_set.all()
     tops = Item.objects.filter(type='top')
     bottoms = Item.objects.filter(type='bottom')
     dresses = Item.objects.filter(type='dress')
@@ -27,6 +24,7 @@ def items_index(request):
         'shoes': shoes,
         'coats': coats,
         'handbags': handbags,
+        'items': items,
     }
 
     return render(request, 'wardrobe/items.html/', context)

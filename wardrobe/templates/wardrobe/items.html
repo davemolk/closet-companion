@@ -174,4 +174,26 @@
       </div>
     </div>
   </section>
+
+  <section id="items" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Items</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">    
+      {% for item in items %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <img src="{{item.image.url}}" class="card-img-top">
+             
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
 {% endblock %}

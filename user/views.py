@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Profile,
+from .models import Profile
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -28,7 +28,7 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            return redirect('account')
+            return redirect('index')
         else:
             messages.error(request, 'Username OR password is incorrect')
 
@@ -56,3 +56,12 @@ def signupUser(request):
             return redirect('signup')
     context = {'form': form}
     return render(request, 'user/signup.html', context)
+
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    items = profile.item_set.all()
+
+    context = {'profile': profile, 'items': items}
+    return render(request, 'user/account.html', context)
