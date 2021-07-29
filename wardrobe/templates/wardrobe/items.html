@@ -38,6 +38,9 @@
            <li class="nav-item">
             <a class="nav-link" href="#handbags">Handbags</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#other">Miscellaneous</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -52,10 +55,12 @@
       <div class="row my-2 align-items-center justify-content-center">
       {% for top in tops %}
         <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{top.image.url}}" class="card-img-top">
-              <a href="/items/{{ top.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <div class="card-body text-center py-4">
+                <img src="{{top.image.url}}" class="card-img-top">
+                <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -77,7 +82,7 @@
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
               <img src="{{bottom.image.url}}" class="card-img-top">
-              <a href="/items/{{ bottom.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              <a href="{% url 'item' bottom.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -99,7 +104,7 @@
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
               <img src="{{dress.image.url}}" class="card-img-top">
-              <a href="/items/{{ dress.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              <a href="{% url 'item' dress.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -121,7 +126,7 @@
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
               <img src="{{shoe.image.url}}" class="card-img-top">
-              <a href="/items/{{ shoe.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              <a href="{% url 'item' shoe.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -143,7 +148,7 @@
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
               <img src="{{coat.image.url}}" class="card-img-top">
-              <a href="/items/{{ coat.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              <a href="{% url 'item' coat.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -165,7 +170,7 @@
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
               <img src="{{handbag.image.url}}" class="card-img-top">
-              <a href="/items/{{ handbag.id}}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              <a href="{% url 'item' handbag.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -175,19 +180,19 @@
     </div>
   </section>
 
-  <section id="items" class="bg-light texture">
+  <section id="other" class="bg-light texture">
     <div class="container-lg">
       <div class="text-center">
-        <h2>Items</h2>
+        <h2>Miscellaneous</h2>
       </div>
 
       <div class="row my-2 align-items-center justify-content-center">    
-      {% for item in items %}
+      {% for other in others %}
         <div class="col-8 col-lg-4 col-xl-3 mb-3">
           <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-body text-center py-4">
-              <img src="{{item.image.url}}" class="card-img-top">
-             
+              <img src="{{other.image.url}}" class="card-img-top">
+              <a href="{% url 'item' other.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
             </div>
           </div>
         </div>
@@ -196,4 +201,6 @@
       </div>
     </div>
   </section>
+
+
 {% endblock %}

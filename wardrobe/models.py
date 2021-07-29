@@ -11,6 +11,7 @@ class Item(models.Model):
     shoe = 'shoe'
     coat = 'coat'
     handbag = 'handbag'
+    other = 'other'
 
     item_type = [
         (top, 'top'),
@@ -19,6 +20,7 @@ class Item(models.Model):
         (shoe, 'shoe'),
         (coat, 'coat'),
         (handbag, 'handbag'),
+        (other, 'other'),
     ]
 
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)

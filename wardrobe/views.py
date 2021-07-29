@@ -7,16 +7,17 @@ from .forms import ItemForm
 # Create your views here.
 
 
-#filter by user
+@login_required(login_url="login")
 def items(request):
     profile = request.user.profile
     items = profile.item_set.all()
-    tops = Item.objects.filter(type='top')
-    bottoms = Item.objects.filter(type='bottom')
-    dresses = Item.objects.filter(type='dress')
-    shoes = Item.objects.filter(type='shoe')
-    coats = Item.objects.filter(type='coat')
-    handbags = Item.objects.filter(type='handbag')
+    tops = items.filter(type='top')
+    bottoms = items.filter(type='bottom')
+    dresses = items.filter(type='dress')
+    shoes = items.filter(type='shoe')
+    coats = items.filter(type='coat')
+    handbags = items.filter(type='handbag')
+    others = items.filter(type='other')
     context = {
         'tops': tops, 
         'bottoms': bottoms,
@@ -24,7 +25,7 @@ def items(request):
         'shoes': shoes,
         'coats': coats,
         'handbags': handbags,
-        'items': items,
+        'others': others,
     }
 
     return render(request, 'wardrobe/items.html/', context)
@@ -32,9 +33,9 @@ def items(request):
 
 @login_required(login_url="login")
 def item(request, pk):
-    item = Item.objects.get(id=pk)
-    tags = item.objects.all()
-    context = {'item': item, 'tags': tags}
+    itemObj = Item.objects.get(id=pk)
+    tags = itemObj.tags.all()
+    context = {'item': itemObj, 'tags': tags}
     return render(request, 'wardrobe/single_item.html', context)
 
 
