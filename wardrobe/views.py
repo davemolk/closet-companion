@@ -15,7 +15,7 @@ def items(request):
     bottoms = items.filter(type='bottom')
     dresses = items.filter(type='dress')
     shoes = items.filter(type='shoe')
-    coats = items.filter(type='coat')
+    coats = items.filter(type='outerwear')
     handbags = items.filter(type='handbag')
     others = items.filter(type='other')
     context = {
@@ -46,6 +46,7 @@ def createItem(request):
 
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
+        print('data:', request.POST)
         if form.is_valid():
             item = form.save(commit=False)
             item.owner = profile

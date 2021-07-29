@@ -9,7 +9,7 @@ class Item(models.Model):
     bottom = 'bottom'
     dress = 'dress'
     shoe = 'shoe'
-    coat = 'coat'
+    outerwear = 'outerwear'
     handbag = 'handbag'
     other = 'other'
 
@@ -18,7 +18,7 @@ class Item(models.Model):
         (bottom, 'bottom'),
         (dress, 'dress'),
         (shoe, 'shoe'),
-        (coat, 'coat'),
+        (outerwear, 'outerwear'),
         (handbag, 'handbag'),
         (other, 'other'),
     ]
