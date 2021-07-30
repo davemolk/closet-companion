@@ -108,7 +108,11 @@ class createOutfit(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('items')
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        outfit = form.save(commit=False)
+        outfit.owner = self.request.user.profile
+        outfit.save()
+        # form.instance.user = self.request.user
+
         return super().form_valid(form)
 
     def get_form_kwargs(self):
@@ -118,3 +122,5 @@ class createOutfit(LoginRequiredMixin, CreateView):
         kwargs = super(createOutfit, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
+    
+    
