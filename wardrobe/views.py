@@ -112,7 +112,7 @@ class createOutfit(LoginRequiredMixin, CreateView):
     model = Outfit
     form_class = OutfitForm
     template_name = 'wardrobe/outfit_form.html'
-    success_url = reverse_lazy('items')
+    success_url = reverse_lazy('outfits')
 
     def form_valid(self, form):
         outfit = form.save(commit=False)

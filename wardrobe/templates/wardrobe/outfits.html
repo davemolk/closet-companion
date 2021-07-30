@@ -27,7 +27,36 @@
               <div class="card-body text-center py-4">
                 <p>Name: {{outfit.name}}</p>
                 <p>Description: {{outfit.description}}</p>
-                
+                {% for item in outfit.items.all %}
+                    {% if item.type == "top" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "bottom" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "dress" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "shoe" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "outerwear" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "handbag" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                    {% if item.type == "other" %}
+                        {{item.name}}
+                        <img src="{{item.image.url}}" class="card-img-top">
+                    {% endif %}
+                {% endfor %}
               </div>
             </div>
           </div>
