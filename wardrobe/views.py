@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import ItemForm, OutfitForm
 from .utils import searchItems
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -111,7 +111,6 @@ class createOutfit(LoginRequiredMixin, CreateView):
         outfit = form.save(commit=False)
         outfit.owner = self.request.user.profile
         outfit.save()
-        # form.instance.user = self.request.user
 
         return super().form_valid(form)
 
@@ -124,3 +123,13 @@ class createOutfit(LoginRequiredMixin, CreateView):
         return kwargs
     
     
+class updateOutfit(LoginRequiredMixin, UpdateView):
+    model = Outfit
+    form_class = OutfitForm
+    template_name = 'wardrobe/outfit_form.html'
+    success_url = reverse_lazy('items')
+
+    def get_form_kwargs(self):
+        kwargs = super(updateOutfit, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs

@@ -38,22 +38,3 @@ class OutfitForm(ModelForm):
         self.fields['item'].queryset = Item.objects.filter(
             owner=self.request.user.profile)
 
-    #     if kwargs.get('instance'):
-    #         initial = kwargs.setdefault('initial', {})
-    #         initial['item'] = [i.pk for i in kwargs['instance'].item_set.all()]
-
-    # def save(self, commit=True):
-    #     instance = forms.ModelForm.save(self, False)
-
-    #     old_save_m2m = self.save_m2m
-    #     def save_m2m():
-    #         old_save_m2m()
-    #         instance.item_set.clear()
-    #         instance.item_set.add(*self.cleaned_data['item'])
-    #     self.save_m2m = save_m2m
-
-    #     if commit:
-    #         instance.save()
-    #         self.save_m2m
-
-    #     return instance
