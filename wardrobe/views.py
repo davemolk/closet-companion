@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Item, Tag
+from .models import Item, Tag, Outfit
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import ItemForm
+from .forms import ItemForm, OutfitForm
 from .utils import searchItems
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -96,3 +99,22 @@ def deleteItem(request, pk):
     
     context = {'object': item}
     return render(request, 'delete_template.html', context)
+
+
+class createOutfit(LoginRequiredMixin, CreateView):
+    model = Outfit
+    form_class = OutfitForm
+    template_name = 'wardrobe/outfit_form.html'
+    success_url = reverse_lazy('items')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        """ Passes the request object to the form class.
+         This is necessary to only display members that belong to a given user"""
+
+        kwargs = super(createOutfit, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
