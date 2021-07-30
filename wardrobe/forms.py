@@ -10,5 +10,6 @@ class ItemForm(ModelForm):
             'description': 'Item description',
             'type': 'Item type',
             'image': 'Item image', 
-            'sell': 'For sale?'
+            'sell': 'For sale?',
+            'price': '(if item is for sale)',
         }

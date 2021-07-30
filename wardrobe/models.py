@@ -29,12 +29,21 @@ class Item(models.Model):
     type = models.CharField(max_length=100, choices = item_type, default=shoe)
     image = models.ImageField(upload_to="images", default='itemdefault.jpg')
     sell = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
     tags = models.ManyToManyField('Tag', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.name
+        
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)

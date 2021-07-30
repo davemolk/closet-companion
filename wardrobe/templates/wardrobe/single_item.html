@@ -15,6 +15,9 @@
         <div class="card-body">
           <h5 class="card-title">Name: {{ item.name }}</h5>
           <p class="card-text">Description: {{ item.description }}</p>
+          {% if item.sell%}
+          <p class="card-text">Price: {{ item.price }}</p>
+          {% endif %}
           <div>Tags:
           {% for tag in tags %}
             <span class="tag">

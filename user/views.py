@@ -65,3 +65,5 @@ def userAccount(request):
 
     context = {'profile': profile, 'items': items}
     return render(request, 'user/account.html', context)
+
+
