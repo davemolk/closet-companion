@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container-lg">
+  <div class="text-center">
+    <h2>Let's Take a Closer Look</h2>
+  </div>
+  <div class="row my-5 g-5 justify-content-around">
+    <div class="col-6 col-lg-4 align-items-center">
+        {% for item in outfit.items.all %}
+            {{item.name}}
+            <img src="{{item.image.url}}" class="card-img-top">
+        {% endfor %}
+    </div>
+    <div class="col-6 col-lg-4">
+      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        <div class="card-body">
+
+          <h5 class="card-title">Name: {{ outfit.name }}</h5>
+          <p class="card-text">Description: {{ outfit.description }}</p>
+          
+          <div class="row align-items-center">
+            <a class="btn btn-outline-secondary btn-sm" href="{% url 'update-outfit' outfit.id %}">Update Outfit</a>
+            <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-outfit' outfit.id %}">Delete Outfit</a>
+          </div>
+
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+
+{% endblock %}

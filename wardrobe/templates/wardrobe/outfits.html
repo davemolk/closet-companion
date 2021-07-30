@@ -27,6 +27,7 @@
               <div class="card-body text-center py-4">
                 <p>Name: {{outfit.name}}</p>
                 <p>Description: {{outfit.description}}</p>
+                <a href="{% url 'outfit' outfit.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
                 {% for item in outfit.items.all %}
                     {% if item.type == "top" %}
                         {{item.name}}

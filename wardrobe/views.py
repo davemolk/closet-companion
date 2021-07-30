@@ -55,6 +55,7 @@ def createItem(request):
             item = form.save(commit=False)
             item.owner = profile
             item.save()
+            messages.success(request, 'Item successfully registered!')
 
             for tag in newtags:
                 tag, created = Tag.objects.get_or_create(name=tag)
@@ -79,6 +80,7 @@ def updateItem(request, pk):
         form = ItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             item = form.save()
+            messages.success(request, 'Item updated!')
             for tag in newtags:
                 tag, created = Tag.objects.get_or_create(name=tag)
                 item.tags.add(tag)
@@ -95,6 +97,7 @@ def deleteItem(request, pk):
 
     if request.method == 'POST':
         item.delete()
+        messages.success(request, 'Item deleted!')
         return redirect('items')
     
     context = {'object': item}
@@ -108,6 +111,14 @@ def outfits(request):
     context = {'outfits': outfits}
     return render(request, 'wardrobe/outfits.html', context)
 
+
+@login_required(login_url="login")
+def outfit(request, pk):
+    outfitObj = Outfit.objects.get(id=pk)
+    context = {'outfit': outfitObj}
+    return render(request, 'wardrobe/single_outfit.html', context)
+
+
 class createOutfit(LoginRequiredMixin, CreateView):
     model = Outfit
     form_class = OutfitForm
@@ -118,6 +129,7 @@ class createOutfit(LoginRequiredMixin, CreateView):
         outfit = form.save(commit=False)
         outfit.owner = self.request.user.profile
         outfit.save()
+        messages.success(self.request, 'Outfit created!')
 
         return super().form_valid(form)
 
@@ -140,3 +152,17 @@ class updateOutfit(LoginRequiredMixin, UpdateView):
         kwargs = super(updateOutfit, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
+
+
+@login_required(login_url="login")
+def deleteOutfit(request, pk):
+    profile = request.user.profile
+    outfit = profile.outfit_set.get(id=pk)
+
+    if request.method == 'POST':
+        outfit.delete()
+        messages.success(request, 'Outfit deleted!')
+        return redirect('outfits')
+
+    context = {'object': outfit}
+    return render(request, 'delete_template.html', context)
