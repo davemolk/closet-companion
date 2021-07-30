@@ -101,6 +101,13 @@ def deleteItem(request, pk):
     return render(request, 'delete_template.html', context)
 
 
+@login_required(login_url="login")
+def outfits(request):
+    profile = request.user.profile
+    outfits = profile.outfit_set.all()
+    context = {'outfits': outfits}
+    return render(request, 'wardrobe/outfits.html', context)
+
 class createOutfit(LoginRequiredMixin, CreateView):
     model = Outfit
     form_class = OutfitForm

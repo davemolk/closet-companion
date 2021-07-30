@@ -3,8 +3,8 @@ from .models import Item, Outfit
 from django import forms
 
 class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
-    def label_from_instance(self, item):
-        return "%s" % item.name
+    def label_from_instance(self, items):
+        return "%s" % items.name
 
 class ItemForm(ModelForm):
     class Meta:
@@ -22,9 +22,9 @@ class ItemForm(ModelForm):
 class OutfitForm(ModelForm):
     class Meta:
         model = Outfit
-        fields = ['name', 'description', 'item']
+        fields = ['name', 'description', 'items']
     
-    item = CustomModelMultipleChoiceField(
+    items = CustomModelMultipleChoiceField(
         queryset=None,
         widget=forms.CheckboxSelectMultiple
     )
@@ -35,6 +35,6 @@ class OutfitForm(ModelForm):
 
         self.request = kwargs.pop('request')
         super(OutfitForm, self).__init__(*args, **kwargs)
-        self.fields['item'].queryset = Item.objects.filter(
+        self.fields['items'].queryset = Item.objects.filter(
             owner=self.request.user.profile)
 

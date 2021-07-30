@@ -56,10 +56,9 @@ class Tag(models.Model):
 
 class Outfit(models.Model):
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
-    item = models.ManyToManyField(Item)
+    items= models.ManyToManyField(Item)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=300, blank=True, null=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     
     def __str__(self):
         return self.name

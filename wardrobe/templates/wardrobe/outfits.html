@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="container-lg">
+    <div class="text-center">
+      <h2>Welcome to Your Closet</h2>
+      <p class="lead text-muted">Click on a category below or use the search field to find something specific. Or just start scrolling!</p>
+    </div>
+  </div>
+
+  
+
+
+  <section id="outfits" class="bg-light texture">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Outfits</h2>
+      </div>
+
+      <div class="row my-2 align-items-center justify-content-center">
+      {% for outfit in outfits %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <div class="card-body text-center py-4">
+                <p>Name: {{outfit.name}}</p>
+                <p>Description: {{outfit.description}}</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}
