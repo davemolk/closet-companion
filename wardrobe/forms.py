@@ -1,10 +1,13 @@
 from django.forms import ModelForm
 from .models import Item, Outfit
 from django import forms
+from django.utils.safestring import mark_safe
+
 
 class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
     def label_from_instance(self, items):
-        return "%s" % items.name
+        return mark_safe("<img src='%s'/>" % items.imageURL)
+        # return "%s" % items.imageURL
 
 class ItemForm(ModelForm):
     class Meta:
