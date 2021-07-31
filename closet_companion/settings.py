@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'wardrobe.apps.WardrobeConfig',
     'user.apps.UserConfig',
+    'store.apps.StoreConfig',
+
     'crispy_forms',
 ]
 
