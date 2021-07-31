@@ -85,13 +85,16 @@
         <h2>Tops</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">
+      <div class="row my-2 justify-content-center">
       {% for top in tops %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
-            <div class="card shadow p-3 mb-5 bg-body rounded">
-              <div class="card-body text-center py-4">
-                <img src="{{top.imageURL}}" class="card-img-top">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{top.imageURL}}" class="card-img-top">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
                 <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
               </div>
             </div>
@@ -111,13 +114,18 @@
         <h2>Bottoms</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">
+      <div class="row my-2 justify-content-center">
       {% for bottom in bottoms %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{bottom.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' bottom.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{bottom.imageURL}}" class="card-img-bottom">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' bottom.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -135,13 +143,18 @@
         <h2>Dresses</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">
+      <div class="row my-2 justify-content-center">
       {% for dress in dresses %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{dress.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' dress.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{dress.imageURL}}" class="card-img-dress">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' dress.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -159,13 +172,18 @@
         <h2>Shoes</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">
+      <div class="row my-2 justify-content-center">
       {% for shoe in shoes %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{shoe.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' shoe.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{shoe.imageURL}}" class="card-img-shoe">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' shoe.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -183,13 +201,18 @@
         <h2>Outerwear</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">
+      <div class="row my-2 justify-content-center">
       {% for coat in coats %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{coat.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' coat.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{coat.imageURL}}" class="card-img-coat">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' coat.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -207,13 +230,18 @@
         <h2>Handbags</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">    
+      <div class="row my-2 justify-content-center">    
       {% for handbag in handbags %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{handbag.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' handbag.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{handbag.imageURL}}" class="card-img-handbag">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' handbag.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -231,13 +259,18 @@
         <h2>Miscellaneous</h2>
       </div>
 
-      <div class="row my-2 align-items-center justify-content-center">    
+      <div class="row my-2 justify-content-center">    
       {% for other in others %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body text-center py-4">
-              <img src="{{other.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' other.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{other.imageURL}}" class="card-img-other">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+              <div class="card-footer text-center py-4">
+                <a href="{% url 'item' other.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+              </div>
             </div>
           </div>
         </div>
