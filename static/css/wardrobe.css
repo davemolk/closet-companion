@@ -9,6 +9,27 @@ body{
   background-size: cover;
 }
 
+
+
+
+
+.content-box {
+  width: 95%;
+  max-width: 85rem;
+  margin: 0 auto;
+}
+
+.form {
+  display: block;
+}
+
+
+.form__field {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
 .hero-section {
   height: 40vh;
   display: flex;

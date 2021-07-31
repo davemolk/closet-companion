@@ -36,8 +36,13 @@
 
         <div class="row justify-content-center p-3">
           <button class="btn btn-outline-secondary" type="submit" value="Submit!">Submit</button>
+          <a href="{% url 'reset_password' %}">Forget Password?</a>
         </div>
       </form>
+      <div>
+          <p>Don’t have an Account?</p>
+          <a href="{% url 'signup' %}">Sign Up</a>
+        </div>
     </div>
   </div>
 </div>
