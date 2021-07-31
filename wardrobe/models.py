@@ -1,6 +1,8 @@
 from django.db import models
 from user.models import Profile
 import uuid
+from django_resized import ResizedImageField
+
 
 # Create your models here.
 
@@ -27,7 +29,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=300, blank=True, null=True)
     type = models.CharField(max_length=100, choices = item_type, default=shoe)
-    image = models.ImageField(upload_to="images", default='itemdefault.jpg')
+    image = ResizedImageField(size=[200, 200], upload_to="images")
     sell = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
     tags = models.ManyToManyField('Tag', blank=True)
