@@ -1,4 +1,4 @@
-
+{% load static %}
 <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4 shadow p-3 mb-5 bg-body rounded texture">
     <div class="container-lg">
         <!-- navbar brand / title -->
@@ -36,15 +36,24 @@
             <li class="nav-item d-md-none">
             <a class="nav-link" href="#">Add Item</a>
             </li>
-            <li class="nav-item ms-2 d-none d-md-inline">
-            <a class="btn btn-secondary" href="{% url 'create-item' %}">Add Item</a>
+            <li class="nav-item d-none d-md-inline">
+            <a class="nav-link" href="{% url 'create-item' %}">Add Item</a>
             </li>  
             <li class="nav-item d-md-none">
             <a class="nav-link" href="#">Add Outfit</a>
             </li>
-            <li class="nav-item ms-2 d-none d-md-inline">
-            <a class="btn btn-secondary" href="{% url 'create-outfit' %}">Add Outfit</a>
+            <li class="nav-item d-none d-md-inline">
+            <a class="nav-link" href="{% url 'create-outfit' %}">Add Outfit</a>
             </li>  
+            <li class="nav-item d-none d-md-inline">
+            <a class="nav-link" href="{% url 'store' %}">Store</a>
+            </li>  
+            <div>
+                {% comment %} <a href='{% url '#' %}'>  {% endcomment %}
+                <img class="menu-icon" width="30px" id='cart-icon' src="{% static 'images/cart.png' %}" alt="">
+                </a>
+                {% comment %} <p id="cart-total">{{cartItems}}</p> {% endcomment %}
+            </div>
         </ul>
         {% else %}
         <ul class="navbar-nav">

@@ -30,6 +30,11 @@ body{
 }
 
 
+/*=======================
+  Search Section
+========================*/
+
+
 .hero-section {
   height: 40vh;
   display: flex;
@@ -117,6 +122,30 @@ body{
     width: 100%;
   }
 }
+
+/*=======================
+  Store
+========================*/
+#cart-icon{
+	width:25px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+#cart-total{
+	display: block;
+	text-align: center;
+	color:#fff;
+	background-color: red;
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+
+
+
+
 
 /* .card-img-top {
     width: 100%;
