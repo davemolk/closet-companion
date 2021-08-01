@@ -12,7 +12,7 @@ class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
 class ItemForm(ModelForm):
     class Meta:
         model = Item
-        fields = ['name', 'description', 'type', 'image', 'sell']
+        fields = ['name', 'description', 'type', 'image', 'sell', 'price']
         labels = {
             'name': 'Item name',
             'description': 'Item description',
