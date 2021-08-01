@@ -2,8 +2,63 @@
 {% load static %}
 
 {% block content %}
-<h1>store</h1>
+<div class="container-lg">
+    <div class="text-center">
+        <h2>Closet Commerce</h2>
+        <p class="lead text-muted">Use the search field to find something special, or just start scrolling! Click on a seller's name to see their profile, where you can check out all of their items and send a message if you have questions.</p>
+    </div>
+</div>
 
+<section class="hero-section text-center">
+      <div class="container container--narrow">
+
+          <div class="hero-section__search">
+              <form id='searchForm' class="form" action="" method="GET">
+                  <div class="form__field">
+                      <label for="formInput#search">Search:</label>
+                      <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                          placeholder="Deets here" value="" />
+                  </div>
+
+                  <input class="btn btn-outline-secondary" type="submit" value="Search" />
+                  <input class="btn btn-outline-secondary" type="submit" value="Reset" name='' />
+              </form>
+          </div>
+      </div>
+  </section>
+
+  <div class="container-lg bg-light texture">
+      <div class="text-center">
+        <h2>Items just looking for a good home</h2>
+      </div>
+
+      <div class="row my-2 justify-content-center">
+      {% for item in items %}
+      {% if item.price %}
+        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+          <div class="card-group">
+            <div class="card shadow p-3 mb-5 bg-body rounded" >
+              <img src="{{item.imageURL}}" class="card-img-top">
+              <div class="card-body">
+                <p class="card-text lead text-muted text-center"></p>
+              </div>
+               <div class="box-element product">
+                <h6><strong>{{item.name}}</strong></h6>
+                <h6><strong>{{item.owner}}</strong></h6>
+                <hr>
+                <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <a href="#" class="btn btn-outline-success">View</a>
+                <h4 style="display: inline-block; float: right">${{item.price|floatformat:2}}</h4>
+            </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+      </div>
+    </div>
+{% comment %} 
     <div class="row">
         {% for item in items %}
         <div class="col-lg-4">
@@ -18,6 +73,6 @@
             </div>
         </div>
         {% endfor %}
-    </div> 
+    </div>  {% endcomment %}
 
 {% endblock %} 

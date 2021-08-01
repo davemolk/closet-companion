@@ -6,7 +6,7 @@ from user.models import Profile
 from wardrobe.models import Item
 import datetime
 from django.contrib.auth.decorators import login_required
-from .utils import cartData
+from .utils import cartData, searchItems
 
 # Create your views here.
 
