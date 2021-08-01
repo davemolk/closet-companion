@@ -126,7 +126,7 @@ body{
 /*=======================
   Store
 ========================*/
-#cart-icon{
+/* #cart-icon{
 	width:25px;
 	display: inline-block;
 	margin-left: 15px;
@@ -141,8 +141,24 @@ body{
 	height: 25px;
 	border-radius: 50%;
 	font-size: 14px;
+} */
+
+#cart-total {
+  display: inline-block;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  width: 20px;
+  height: 25px;
 }
 
+#cart-icon {
+  width: 25px;
+  display: inline-block;
+  margin-left: 15px;
+}
 
 
 
