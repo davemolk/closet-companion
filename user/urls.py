@@ -9,5 +9,7 @@ urlpatterns = [
     path('logout', views.logoutUser, name='logout'),
     path('signup/', views.signupUser, name='signup'),
     path('account/', views.userAccount, name='account'),
-
+    path('inbox/', views.inbox, name='inbox'),
+    path('message/<str:pk>/', views.viewMessage, name='message'),
+    path('create-message/<str:pk>/', views.createMessage, name="create-message"),
 ]
