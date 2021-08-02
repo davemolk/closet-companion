@@ -13,6 +13,7 @@ def searchItems(request):
     items = profile.item_set.all().distinct().filter(
         Q(name__icontains=search_query) | 
         Q(description__icontains=search_query) |
+        Q(type__icontains=search_query) |
         Q(tags__in=tags)
     )
 

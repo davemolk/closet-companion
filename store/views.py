@@ -15,7 +15,18 @@ def store(request):
     data = cartData(request)
     cartItems = data['cartItems']
 
-    items = Item.objects.filter(sell=True)
-    context = {'items': items}
+    items, search_query = searchItems(request)
+    # items = Item.objects.filter(sell=True)
+    context = {'items': items, 'cartItems': cartItems}
     return render(request, 'store/store.html', context)
     
+
+def cart(request):
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+        
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    return render(request, 'store/cart.html', context)
