@@ -5,7 +5,8 @@
 <div class="container-lg">
     <div class="text-center">
         <h2>Closet Commerce</h2>
-        <p class="lead text-muted">Use the search field to find something special, or just start scrolling! Click on a seller's name to see their profile, where you can check out all of their items and send a message if you have questions.</p>
+        <p class="lead text-muted">Use the search field to find something special, or just start scrolling! </p>
+        <p>Click on a seller's name to see their profile, where you can check out all of their items and send a message if you have questions.</p>
     </div>
 </div>
 
@@ -46,7 +47,7 @@
                 <h6>Item name: {{item.name}}</h6>
                 <h6>Item seller: {{item.owner}}</h6>
                 <hr>
-                <a href="#" class="btn btn-outline-secondary">View</a>
+                <a href="{% url 'sale-item' item.id %}" class="btn btn-outline-secondary">View</a>
                 <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
                 
                 <h4 style="display: inline-block; float: right">${{item.price|floatformat:2}}</h4>

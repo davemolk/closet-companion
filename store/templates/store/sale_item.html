@@ -18,7 +18,7 @@
           {% if item.sell%}
           <p class="card-text">Price: {{ item.price }}</p>
           {% endif %}
-          {% if item.tags %}
+          {% if item.tags%}
           <div>Tags:
           {% for tag in tags %}
             <span class="tag">
@@ -27,11 +27,7 @@
           {% endfor %}
           </div>
           {% endif %}
-    
-          <div class="row align-items-center">
-            <a class="btn btn-outline-secondary btn-sm" href="{% url 'update-item' item.id %}">Update Item</a>
-            <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-item' item.id %}">Delete Item</a>
-          </div>
+          <a href="{% url 'create-message' item.owner.id %}" class="btn btn--sub btn--lg">Send Message </a>
 
         </div>
       </div>  

@@ -22,6 +22,15 @@ def store(request):
     
 
 @login_required(login_url="login")
+def saleItem(request, pk):
+    itemObj = Item.objects.get(id=pk)
+    print('ITEM', itemObj)
+    tags = itemObj.tags.all()
+    context = {'item': itemObj, 'tags': tags}
+    return render(request, 'store/sale_item.html', context)
+
+
+@login_required(login_url="login")
 def cart(request):
     data = cartData(request)
 
