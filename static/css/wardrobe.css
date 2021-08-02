@@ -148,6 +148,10 @@ body{
 	font-size: 14px;
 } */
 
+.menu-icon {
+  display: none;
+}
+
 .cart-row {
   display: flex;
   align-items: flex-stretch;

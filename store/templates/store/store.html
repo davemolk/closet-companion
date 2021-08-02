@@ -43,11 +43,12 @@
                 <p class="card-text lead text-muted text-center"></p>
               </div>
                <div class="box-element product">
-                <h6><strong>{{item.name}}</strong></h6>
-                <h6><strong>{{item.owner}}</strong></h6>
+                <h6>Item name: {{item.name}}</h6>
+                <h6>Item seller: {{item.owner}}</h6>
                 <hr>
+                <a href="#" class="btn btn-outline-secondary">View</a>
                 <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-                <a href="#" class="btn btn-outline-success">View</a>
+                
                 <h4 style="display: inline-block; float: right">${{item.price|floatformat:2}}</h4>
             </div>
             </div>
