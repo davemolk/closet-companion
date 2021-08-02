@@ -51,7 +51,6 @@
         <div class="box-element hidden" id="payment-info">
             <small>Paypal Options</small>
             <div id="paypal-button-container"></div>
-            {% comment %} <button id="make-payment">Make payment</button> {% endcomment %}
         </div>
     </div>
 
@@ -152,11 +151,6 @@
             shippingInfo.city = form.city.value
             shippingInfo.state = form.state.value
             shippingInfo.zipcode = form.zipcode.value
-        }
-
-        if (user == 'AnonymousUser'){
-            userFormData.name = form.name.value
-            userFormData.email = form.email.value
         }
 
         console.log('Shipping Info:', shippingInfo)
