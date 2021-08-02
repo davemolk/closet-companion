@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="box-element">
+        <div class="box-element texture">
             <a href="{% url 'store' %}" class="btn btn-outline-dark">&#x2190; Continue Shopping</a>
             <br>
             <br>
@@ -33,12 +33,12 @@
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="{{orderItem.item.imageURL}}"></div>
                 <div style="flex:2">{{orderItem.item.name}}</div>
-                <div style="flex:1">{{orderItem.item.price}}</div>
+                <div style="flex:1">{{orderItem.item.price|floatformat:2}}</div>
                 <div style="flex:1">
                     <p class="quantity">{{orderItem.quantity}}</p>
                     <div class="quantity">
-                        <img data-product="#" data-action = "add" src="{% static 'images/arrow-up.png' %}" class="chg-quantity update-cart">
-                        <img data-product="#" data-action = "remove" src="{% static 'images/arrow-down.png' %}" class="chg-quantity update-cart">
+                        <img data-product="{{orderItem.item.id}}" data-action = "add" src="{% static 'images/arrow-up.png' %}" class="chg-quantity update-cart">
+                        <img data-product="{{orderItem.item.id}}" data-action = "remove" src="{% static 'images/arrow-down.png' %}" class="chg-quantity update-cart">
                     </div>
                 </div>
                 <div style="flex:1">${{orderItem.get_total}}</div>
