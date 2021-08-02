@@ -34,7 +34,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        total = self.product.price * self.quantity
+        total = self.item.price * self.quantity
         return total
 
 class ShippingAddress(models.Model):

@@ -49,10 +49,10 @@
             <a class="nav-link" href="{% url 'store' %}">Store</a>
             </li>  
             <div>
-                {% comment %} <a href='{% url '#' %}'>  {% endcomment %}
+                <a href="{% url 'cart' %}"> 
                 <img class="menu-icon" width="30px" id='cart-icon' src="{% static 'images/cart.png' %}" alt="">
                 </a>
-                <p id="cart-total">cartItems</p>
+                <p id="cart-total">{{cartItems}}</p>
             </div>
         </ul>
         {% else %}
