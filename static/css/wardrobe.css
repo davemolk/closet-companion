@@ -207,3 +207,46 @@ body{
 .hidden {
   display: none !important;
 }
+
+/*=======================
+  Messages
+========================*/
+
+.msg {
+  margin: 0 !important;
+  margin-bottom: 4px !important;
+  margin-top: 4px !important;
+}
+
+.messages {
+  z-index: 100;
+  position: fixed;
+  right: 20px;
+  list-style: none;
+  text-align: right;
+}
+
+/* .alert {
+  margin-top: 5px;
+} */
+
+.alert {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+  transition: visibility 0s, opacity 250ms, transform 250ms;
+}
+.alert.hide {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px); 
+  transition: visibility 0s 250ms, opacity 250ms, transform 250ms;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+}
