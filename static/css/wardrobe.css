@@ -34,6 +34,14 @@ body{
   margin-bottom: 1.5rem;
 }
 
+.backButton {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
 
 /*=======================
   Search Section
@@ -41,10 +49,8 @@ body{
 
 
 .hero-section {
-  height: 40vh;
   display: flex;
   align-items: center;
-  background-color: var(--color-sub);
 }
 
 .hero-section__box {
@@ -189,10 +195,9 @@ body{
 }
 
 .chg-quantity {
-  width: 12px;
+  width: 60px;
   cursor: pointer;
   display: block;
-  margin-top: 5px;
   transition: 0.1s;
 }
 .chg-quantity:hover {

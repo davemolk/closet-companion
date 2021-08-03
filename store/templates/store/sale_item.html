@@ -13,10 +13,10 @@
     <div class="col-6 col-lg-4">
       <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Name: {{ item.name }}</h5>
+          <h5 class="card-title">Item Name: {{ item.name }}</h5>
           <p class="card-text">Description: {{ item.description|linebreaksbr }}</p>
           {% if item.sell%}
-          <p class="card-text">Price: {{ item.price }}</p>
+          <p class="card-text">Price: ${{ item.price }}</p>
           {% endif %}
           {% if item.tags%}
           <div>Tags:
@@ -27,8 +27,9 @@
           {% endfor %}
           </div>
           {% endif %}
-          <a href="{% url 'create-message' item.owner.id %}" class="btn btn--sub btn--lg">Send Message </a>
-
+          
+          <a href="{% url 'create-message' item.owner.id %}" class="btn btn-outline-secondary">Send {{item.owner}} a message</a>
+          <a href="{% url 'store' %}" class="btn btn-outline-secondary">Head back to store</a>
         </div>
       </div>  
     </div>

@@ -6,7 +6,6 @@
     <div class="text-center">
         <h2>Closet Commerce</h2>
         <p class="lead text-muted">Use the search field to find something special, or just start scrolling! </p>
-        <p>Click on a seller's name to see their profile, where you can check out all of their items and send a message if you have questions.</p>
     </div>
 </div>
 
@@ -26,58 +25,44 @@
               </form>
           </div>
       </div>
-  </section>
-
-  <div class="container-lg bg-light texture">
-      <div class="text-center">
-        <h2>Looking for a good home</h2>
-      </div>
-
-      <div class="row my-2 justify-content-center">
       
-      {% for item in items %}
-      {% if request.user.profile != item.owner %}
-      {% if item.price %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-          <div class="card-group">
-            <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{item.imageURL}}" class="card-img-top">
-              <div class="card-body">
-                <p class="card-text lead text-muted text-center"></p>
-              </div>
-               <div class="box-element product">
+</section>
+<div class="text-center">
+  <p class="lead text-muted">Click on "View Item" to learn more. Here you can send a message to the seller if you have any questions.</p>
+</div>
+<div class="container-lg bg-light texture">
+    <div class="text-center">
+      <h2>Looking for a good home</h2>
+    </div>
+
+    <div class="row my-2 justify-content-center">
+    
+    {% for item in items %}
+    {% if request.user.profile != item.owner %}
+    {% if item.price %}
+      <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
+        <div class="card-group">
+          <div class="card shadow p-3 mb-5 bg-body rounded" >
+            <img src="{{item.imageURL}}" class="card-img-top">
+
+            <div class="box-element product">
                 <h6>Item name: {{item.name}}</h6>
                 <h6>Item seller: {{item.owner}}</h6>
+                <h6>Item price: ${{item.price|floatformat:2}}</h6>
                 <hr>
-                <a href="{% url 'sale-item' item.id %}" class="btn btn-outline-secondary">View</a>
-                <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-                
-                <h4 style="display: inline-block; float: right">${{item.price|floatformat:2}}</h4>
-            </div>
+                <div class="card-footer text-center py-4">
+                  <a href="{% url 'sale-item' item.id %}" class="btn btn-outline-secondary">View Item</a>
+                  <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                </div>
             </div>
           </div>
         </div>
-        {% endif %}
-        {% endif %}
-      {% endfor %}
-      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
       </div>
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+    <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
     </div>
-{% comment %} 
-    <div class="row">
-        {% for item in items %}
-        <div class="col-lg-4">
-            <img class="thumbnail" src="{{item.imageURL}}">
-            <div class="box-element product">
-                <h6><strong>{{item.name}}</strong></h6>
-                <h6><strong>{{item.owner}}</strong></h6>
-                <hr>
-                <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-                <a href="#" class="btn btn-outline-success">View</a>
-                <h4 style="display: inline-block; float: right">${{item.price|floatformat:2}}</h4>
-            </div>
-        </div>
-        {% endfor %}
-    </div>  {% endcomment %}
+  </div>
 
 {% endblock %} 
