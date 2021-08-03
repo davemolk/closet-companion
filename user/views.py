@@ -115,7 +115,7 @@ def createMessage(request, pk):
             message.save()
 
             messages.success(request, 'Your message was sent successfully.')
-            return redirect('')
+            return redirect('store')
 
     context = {'recipient': recipient, 'form': form}
     return render(request, 'user/message_form.html', context)
