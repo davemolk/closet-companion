@@ -116,7 +116,9 @@ def processOrder(request):
     items = order.orderitem_set.filter(order=order)
     print('ITEMS: ', items)
     print('SHIPPING:', shipping.customer, shipping.order, shipping.address, shipping.city, shipping.state, shipping.zipcode)
-    # for item in items.item:
+    for item in items:
+        print('ITEM: ', item.item)
+        item.item.delete()
 
 
     return JsonResponse('Payment complete!', safe=False)

@@ -2,11 +2,21 @@
 <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4 shadow p-3 mb-5 bg-body rounded texture">
     <div class="container-lg">
         <!-- navbar brand / title -->
+
         <a class="navbar-brand" href="/">
+        {% if request.user.is_authenticated %}
         <span class="text-secondary fw-bold">
-            My Closet Companion
+            {{request.user.profile.username}}'s Closet Companion
         </span>
         </a>
+        
+        {% else %}
+        <a class="navbar-brand" href="/">
+        <span class="text-secondary fw-bold">
+            Closet Companion
+        </span>
+        </a> 
+        {% endif %}
 
         <!-- toggle button for mobile nav -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

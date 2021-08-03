@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+{% if items %}
+
 <div class="container-lg">
     <div class="text-center">
         <h2>Closet Commerce</h2>
@@ -29,6 +31,7 @@
 </section>
 <div class="text-center">
   <p class="lead text-muted">Click on "View Item" to learn more. Here you can send a message to the seller if you have any questions.</p>
+  <p class="lead text-muted">Don't see anything? Please check in again with us soon!</p>
 </div>
 <div class="container-lg bg-light texture">
     <div class="text-center">
@@ -65,4 +68,12 @@
     </div>
   </div>
 
+{% else %}
+<div class="container-lg">
+  <div class="text-center">
+      <h2>Closet Commerce</h2>
+      <p class="lead text-muted">Nothing available today, but please check back soon! </p>
+  </div>
+</div>
+{% endif %}
 {% endblock %} 
