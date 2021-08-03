@@ -34,7 +34,9 @@
       </div>
 
       <div class="row my-2 justify-content-center">
+      
       {% for item in items %}
+      {% if request.user.profile != item.owner %}
       {% if item.price %}
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
@@ -55,6 +57,7 @@
             </div>
           </div>
         </div>
+        {% endif %}
         {% endif %}
       {% endfor %}
       <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>

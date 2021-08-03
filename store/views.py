@@ -90,6 +90,8 @@ def processOrder(request):
         customer = request.user.profile
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         print('ORDER:', order)
+        
+        
 
     else:
         return redirect('login')
@@ -109,6 +111,12 @@ def processOrder(request):
         state=data['shipping']['state'],
         zipcode=data['shipping']['zipcode'],
     )
+
+    shipping = ShippingAddress.objects.get(order=order)
+    items = order.orderitem_set.filter(order=order)
+    print('ITEMS: ', items)
+    print('SHIPPING:', shipping.customer, shipping.order, shipping.address, shipping.city, shipping.state, shipping.zipcode)
+    # for item in items.item:
 
 
     return JsonResponse('Payment complete!', safe=False)
