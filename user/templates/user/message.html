@@ -6,16 +6,11 @@
       <div class="message">
         <a class="backButton" href="{% url 'inbox' %}"><i class="im im-angle-left"></i></a>
         <h2 class="message__subject">Subject: {{message.subject}}</h4>
-          {% comment %} {% if message.sender %}
-          <a href="{% url 'user-profile' message.sender.id %}" class="message__author">{{message.name}}</a>
-          {% else %} {% endcomment %}
           <p class="message__author">Name: {{message.sender}}</p>
-
-          {% comment %} {% endif %} {% endcomment %}
           <div class="message__body">Message: {{message.body|linebreaksbr}}</div>
           <p class="message__date">Date sent: {{message.created}}</p>
-          <a href="{% url 'create-message' message.sender.id %}" class="btn btn--sub btn--lg">Reply</a>
-          
+          <a href="{% url 'create-message' message.sender.id %}" class="btn btn-outline-secondary btn-sm">Reply</a>
+          <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-message' message.id %}">Delete</a>
       </div>
     </div>
   </main>

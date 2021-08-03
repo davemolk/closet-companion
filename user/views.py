@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Profile
+from .models import Profile, Message
 from django.contrib.auth.models import User
 from .forms import MessageForm
 
@@ -91,7 +91,7 @@ def viewMessage(request, pk):
     context = {'message': message,}
     return render(request, 'user/message.html', context)
 
-
+@login_required(login_url="login")
 def createMessage(request, pk):
     recipient = Profile.objects.get(id=pk)
     form = MessageForm()
@@ -119,3 +119,15 @@ def createMessage(request, pk):
 
     context = {'recipient': recipient, 'form': form}
     return render(request, 'user/message_form.html', context)
+
+@login_required(login_url="login")
+def deleteMessage(request, pk):
+    message = Message.objects.get(id=pk)
+
+    if request.method == 'POST':
+        message.delete()
+        messages.success(request, 'Message deleted!')
+        return redirect('inbox')
+
+    context = {'object': message}
+    return render(request, 'delete_template.html', context)
