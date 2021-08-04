@@ -19,11 +19,12 @@
           <p class="card-text">Price: {{ item.price }}</p>
           {% endif %}
           {% if item.tags %}
-          <div>Tags:
+          <div>Tags: 
           {% for tag in tags %}
             <span class="tag">
-              <small>{{ tag }}</small>
+              <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-tag' tag.id %}">{{ tag }}</a>
             </span>
+            <p>A tag no longer does it for you? Click to delete</p>
           {% endfor %}
           </div>
           {% endif %}

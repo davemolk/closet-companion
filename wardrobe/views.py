@@ -58,7 +58,9 @@ def createItem(request):
             messages.success(request, 'Item successfully registered!')
 
             for tag in newtags:
-                tag, created = Tag.objects.get_or_create(name=tag)
+                tag = Tag.objects.create(name=tag)
+                tag.owner = profile
+                tag.save()
                 item.tags.add(tag)
 
             return redirect('items')
@@ -82,7 +84,9 @@ def updateItem(request, pk):
             item = form.save()
             messages.success(request, 'Item updated!')
             for tag in newtags:
-                tag, created = Tag.objects.get_or_create(name=tag)
+                tag = Tag.objects.create(name=tag)
+                tag.owner = profile
+                tag.save()
                 item.tags.add(tag)
             return redirect('items')
 
@@ -101,6 +105,21 @@ def deleteItem(request, pk):
         return redirect('items')
     
     context = {'object': item}
+    return render(request, 'delete_template.html', context)
+
+
+@login_required(login_url="login")
+def deleteTag(request, pk):
+    profile = request.user.profile
+    tag = profile.tag_set.get(id=pk)
+    #tag = Tag.objects.get(id=pk)
+
+    if request.method == 'POST':
+        tag.delete()
+        messages.success(request, 'Tag deleted!')
+        return redirect('items')
+    
+    context = {'object': tag}
     return render(request, 'delete_template.html', context)
 
 

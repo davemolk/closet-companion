@@ -48,6 +48,7 @@ class Item(models.Model):
         return url
 
 class Tag(models.Model):
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
