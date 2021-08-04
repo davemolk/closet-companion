@@ -28,7 +28,7 @@
           </div>
           {% endif %}
           
-          <a href="{% url 'create-message' item.owner.id %}" class="btn btn-outline-secondary">Send {{item.owner}} a message</a>
+          <a href="{% url 'create-message' item.owner.id %}" class="btn btn-outline-secondary">Message {{item.owner}}</a>
           <a href="{% url 'store' %}" class="btn btn-outline-secondary">Head back to store</a>
         </div>
       </div>  
