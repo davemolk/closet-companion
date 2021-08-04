@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Message
 from django.contrib.auth.models import User
-from .forms import MessageForm
+from .forms import MessageForm, CustomUserCreationForm
 
 # Create your views here.
 
@@ -44,13 +44,12 @@ def logoutUser(request):
 
 
 def signupUser(request):
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
             user.save()
             messages.success(request, 'User account created!')
             login(request, user)
