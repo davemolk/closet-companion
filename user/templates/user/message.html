@@ -1,24 +1,26 @@
 {% extends 'main.html'%}
 
 {% block content %}
-  <main class="messagePage my-xl">
-    <div class="content-box">
-      <div class="message">
-        <h2 class="message__subject">Subject: {{message.subject}}</h4>
-          <p class="message__author">From: {{message.sender}}</p>
-          <div class="message__body">{{message.body|linebreaksbr}}</div>
-          <p class="message__date">Date sent: {{message.created}}</p>
-      </div>
-      <div class="container">
-        <div class="text-center">
-            <a href="{% url 'create-message' message.sender.id %}" class="btn btn-outline-secondary btn-sm">Reply</a>
-            <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-message' message.id %}">Delete</a>
-            <br>
-            <a href="{% url 'inbox' %}">Back to inbox</a>
-        </div>
-          
 
-      </div>
+<main class="messagePage my-xl">
+  <div class="content-box">
+    <div class="message text-center">
+      <h2 class="message__subject">{{message.subject}}</h4>
+        <p class="message__author">From: {{message.sender}}</p>
+        <div class="message__body">{{message.body|linebreaksbr}}</div>
+        <p class="message__date text-center">Date sent: {{message.created}}</p>
     </div>
-  </main>
+    <div class="container">
+      <div class="text-center">
+          <a href="{% url 'create-message' message.sender.id %}" class="btn btn-outline-secondary btn-sm">Reply</a>
+          <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-message' message.id %}">Delete</a>
+          <br>
+          <a href="{% url 'inbox' %}">Back to inbox</a>
+      </div>
+        
+
+    </div>
+  </div>
+</main>
+
 {% endblock %}

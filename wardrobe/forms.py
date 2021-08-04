@@ -22,6 +22,12 @@ class ItemForm(ModelForm):
             'price': 'Price (if item is for sale)',
         }
 
+    def __init__(self, *args, **kwargs):
+        super(ItemForm, self).__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'input'})
+
+
 class OutfitForm(ModelForm):
     class Meta:
         model = Outfit

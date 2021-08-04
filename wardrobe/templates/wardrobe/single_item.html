@@ -24,8 +24,9 @@
             <span class="tag">
               <a class="btn btn-outline-secondary btn-sm" href="{% url 'delete-tag' tag.id %}">{{ tag }}</a>
             </span>
-            <p>A tag no longer does it for you? Click to delete</p>
+            
           {% endfor %}
+          <p>A tag no longer does it for you? Click to delete</p>
           </div>
           {% endif %}
     
