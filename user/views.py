@@ -32,14 +32,14 @@ def loginUser(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, 'Username OR password is incorrect')
+            messages.error(request, 'As if!!! Username OR password is incorrect')
 
     return render(request, 'user/login.html')
 
 
 def logoutUser(request):
     logout(request)
-    messages.success(request, 'You have been logged out')
+    messages.success(request, 'Be seeing you, and I hope not sporadically')
     return redirect('index')
 
 
