@@ -28,7 +28,18 @@ body{
   margin: 0 auto;
 }
 
+/*=======================
+  Index
+========================*/
+.index-sub{
+  font-size: 15px;
+}
 
+.index-description{
+  font-size: 18px;
+  line-height: 140%;
+  text-align: left;
+}
 
 
 /*=======================
