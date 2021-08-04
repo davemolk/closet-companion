@@ -27,15 +27,7 @@
         <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
         {% if request.user.is_authenticated %}
         <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'inbox' %}">Inbox</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'account' %}">Account</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
+           
             <li class="nav-item">
             <a class="nav-link" href="{% url 'items' %}">My Closet</a></span>
             </li>
@@ -55,6 +47,9 @@
             <li class="nav-item d-none d-md-inline">
             <a class="nav-link" href="{% url 'create-outfit' %}">Add Outfit</a>
             </li>  
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'inbox' %}">Inbox</a>
+            </li>
             <li class="nav-item d-none d-md-inline">
             <a class="nav-link" href="{% url 'store' %}">Store</a>
             </li> 
@@ -68,6 +63,9 @@
                 <p></p>
                 {% endif %}
             </div>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
            
         </ul>
         {% else %}

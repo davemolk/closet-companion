@@ -91,9 +91,12 @@
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
               <img src="{{top.imageURL}}" class="card-img-top">
+              <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
+
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
+            
               <div class="card-footer text-center py-4">
                 <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
               </div>

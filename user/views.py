@@ -15,7 +15,7 @@ def index(request):
 
 def loginUser(request):
     if request.user.is_authenticated:
-        return redirect('account')
+        return redirect('index')
         
     if request.method == 'POST':
         username = request.POST['username'].lower()
@@ -53,21 +53,12 @@ def signupUser(request):
             user.save()
             messages.success(request, 'User account created!')
             login(request, user)
-            return redirect('account')
+            return redirect('index')
         else:
             messages.error(request, 'An error has occurred during registration')
             return redirect('signup')
     context = {'form': form}
     return render(request, 'user/signup.html', context)
-
-
-@login_required(login_url='login')
-def userAccount(request):
-    profile = request.user.profile
-    items = profile.item_set.all()
-
-    context = {'profile': profile, 'items': items}
-    return render(request, 'user/account.html', context)
 
 
 @login_required(login_url="login")
