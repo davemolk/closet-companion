@@ -15,7 +15,7 @@
       <img src="{{item.image.url }}" class="img-fluid" alt="item">
     </div>
     {% endif %}
-    <div class="col-lg-6">
+    <div class="col-lg-6 formWrapper">
       <form class="shadow p-3 mb-5 bg-body rounded" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
