@@ -3,7 +3,8 @@
 }
 
 body{
-    background-color: #ffe6a2
+    background-color: #ffe6a2;
+    font-family: 'Montserrat', sans-serif;
   }
 
 .texture{
@@ -166,7 +167,14 @@ textarea.input {
 ========================*/
 
 .menu-icon {
-  display: none;
+  display: inline-block;
+}
+
+#cart-icon {
+  width: 25px;
+  display: inline-block;
+  /* margin-left: 10px; */
+  align-items: center;
 }
 
 .cart-row {
@@ -187,13 +195,6 @@ textarea.input {
   width: 20px;
   height: 25px;
 }
-
-#cart-icon {
-  width: 25px;
-  display: inline-block;
-  margin-left: 15px;
-}
-
 
 .row-image {
   width: 100px;

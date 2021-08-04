@@ -62,8 +62,13 @@
                 <a href="{% url 'cart' %}">                 
                 <img class="menu-icon" width="30px" id='cart-icon' src="{% static 'images/cart.png' %}" alt="">
                 </a>
+                {% if cartItems %}
                 <p id="cart-total">{{cartItems}}</p>
+                {% else %}
+                <p></p>
+                {% endif %}
             </div>
+           
         </ul>
         {% else %}
         <ul class="navbar-nav">
