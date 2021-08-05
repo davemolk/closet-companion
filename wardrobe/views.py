@@ -6,7 +6,7 @@ from .forms import ItemForm, OutfitForm
 from .utils import searchItems
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 # Create your views here.
 
@@ -116,7 +116,7 @@ def deleteTag(request, pk):
     if request.method == 'POST':
         tag.delete()
         messages.success(request, 'Tag deleted!')
-        return redirect('items')
+        return redirect(request.GET['next'])
     
     context = {'object': tag}
     return render(request, 'delete_template.html', context)
@@ -164,13 +164,15 @@ class updateOutfit(LoginRequiredMixin, UpdateView):
     model = Outfit
     form_class = OutfitForm
     template_name = 'wardrobe/outfit_form.html'
-    success_url = reverse_lazy('items')
+    # success_url = reverse_lazy('items')
 
     def get_form_kwargs(self):
         kwargs = super(updateOutfit, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
 
+    def get_success_url(self):
+        return reverse('outfit', kwargs={'pk': self.object.pk})
 
 @login_required(login_url="login")
 def deleteOutfit(request, pk):
