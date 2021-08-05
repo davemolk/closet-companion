@@ -42,6 +42,7 @@
     
     {% for item in items %}
     {% if request.user.profile != item.owner %}
+    {% if item.available %}
     {% if item.price %}
       <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
         <div class="card-group">
@@ -52,6 +53,7 @@
                 <h6>Item name: {{item.name}}</h6>
                 <h6>Item seller: {{item.owner}}</h6>
                 <h6>Item price: ${{item.price|floatformat:2}}</h6>
+                <h6>Item available? {{item.available}}</h6>
                 <hr>
                 <div class="card-footer text-center py-4">
                   <a href="{% url 'sale-item' item.id %}" class="btn btn-outline-secondary">View Item</a>
@@ -61,6 +63,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       {% endif %}
       {% endif %}
     {% endfor %}

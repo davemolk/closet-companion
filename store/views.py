@@ -7,6 +7,7 @@ from wardrobe.models import Item
 import datetime
 from django.contrib.auth.decorators import login_required
 from .utils import cartData, searchItems
+from django.contrib import messages
 
 # Create your views here.
 
@@ -67,13 +68,26 @@ def updateItem(request):
     orderItem, created = OrderItem.objects.get_or_create(order=order, item=item)
 
     if action == 'add':
-        print('add')
+        # print('add')
         orderItem.quantity = (orderItem.quantity + 1)
+        # print('ORDER ITEM', orderItem.item.name)
+        # print('add blcok item available?', orderItem.item.available)
+        # print('item price?', orderItem.item.price)
+        # orderItem.item.available = False
+        # item.save()
+        messages.success(request, 'Item added to cart')
+        # print('item available?', orderItem.item.available)
     elif action == 'remove':
-        print('remove')
+        # print('remove')
         orderItem.quantity = (orderItem.quantity - 1)
+        # orderItem.item.available = True
+        # item.save()
+        messages.success(request, 'Item removed from cart')
     
+    print('item available outside block pre-save?', orderItem.item.available)
+    # item.save()
     orderItem.save()
+    print('item available outside block post-save?', orderItem.item.available)
 
     if orderItem.quantity <= 0:
         orderItem.delete()
@@ -114,11 +128,13 @@ def processOrder(request):
 
     shipping = ShippingAddress.objects.get(order=order)
     items = order.orderitem_set.filter(order=order)
-    print('ITEMS: ', items)
-    print('SHIPPING:', shipping.customer, shipping.order, shipping.address, shipping.city, shipping.state, shipping.zipcode)
+    # print('ITEMS: ', items)
+    # print('SHIPPING:', shipping.customer, shipping.order, shipping.address, shipping.city, shipping.state, shipping.zipcode)
     for item in items:
         print('ITEM: ', item.item)
         item.item.delete()
+
+    messages.success(request, 'Congrats on your new threads!')
 
 
     return JsonResponse('Payment complete!', safe=False)
