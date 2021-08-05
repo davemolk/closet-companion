@@ -88,7 +88,7 @@ def updateItem(request, pk):
                 tag.owner = profile
                 tag.save()
                 item.tags.add(tag)
-            return redirect('items')
+            return redirect('item', pk=item.id)
 
     context = {'page': page, 'form': form, 'tags': tags, 'item': item}
     return render(request, 'wardrobe/item_form.html', context)
@@ -112,7 +112,6 @@ def deleteItem(request, pk):
 def deleteTag(request, pk):
     profile = request.user.profile
     tag = profile.tag_set.get(id=pk)
-    #tag = Tag.objects.get(id=pk)
 
     if request.method == 'POST':
         tag.delete()
