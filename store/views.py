@@ -68,34 +68,19 @@ def updateItem(request):
     orderItem, created = OrderItem.objects.get_or_create(order=order, item=item)
 
     if action == 'add':
-        # print('add')
         if orderItem.quantity == 0:
-            orderItem.quantity = (orderItem.quantity + 1)
+            orderItem.quantity = 1
             messages.success(request, 'Item added to cart')
 
         elif orderItem.quantity == 1:
             messages.error(request, 'Item already in cart!')
-
-        print('how many', orderItem.quantity)
-        # print('ORDER ITEM', orderItem.item.name)
-        # print('add blcok item available?', orderItem.item.available)
-        # print('item price?', orderItem.item.price)
-        # orderItem.item.available = False
-        # item.save()
-        # messages.success(request, 'Item added to cart')
-        # print('item available?', orderItem.item.available)
+    
     elif action == 'remove':
-        # print('remove')
         orderItem.quantity = (orderItem.quantity - 1)
-        # orderItem.item.available = True
-        # item.save()
         messages.success(request, 'Item removed from cart')
     
-    # print('item available outside block pre-save?', orderItem.item.available)
-    # item.save()
     orderItem.save()
-    # print('item available outside block post-save?', orderItem.item.available)
-
+    
     if orderItem.quantity <= 0:
         orderItem.delete()
 

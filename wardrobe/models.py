@@ -32,7 +32,6 @@ class Item(models.Model):
     image = ResizedImageField(size=[200, 200], upload_to="images")
     sell = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
-    available = models.BooleanField(default=True)
     tags = models.ManyToManyField('Tag', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)

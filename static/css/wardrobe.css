@@ -338,7 +338,7 @@ textarea.input {
   position: fixed;
   right: 20px;
   list-style: none;
-  text-align: right;
+  text-align: center;
 }
 
 /* .alert {
