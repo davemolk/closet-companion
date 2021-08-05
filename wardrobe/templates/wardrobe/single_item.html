@@ -8,7 +8,11 @@
   </div>
   <div class="row my-5 g-5 justify-content-around align-items-center">
     <div class="col-6 col-lg-4">
-      <img src="{{item.image.url }}" class="img-fluid" alt="item">
+      {% if item.url %}
+      <img src="{{item.url}}" class="img-fluid" alt="item">
+      {% else %}
+      <img src="{{item.imageURL}}" class="img-fluid" alt="item">
+      {% endif %}
     </div>
     <div class="col-6 col-lg-4">
       <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">

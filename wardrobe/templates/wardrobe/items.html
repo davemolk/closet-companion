@@ -77,8 +77,6 @@
           </div>
       </div>
   </section>
-  {% comment %} <p>For C</p>
-  <img style="width: 400px; height: 400px" src="https://images.garmentory.com/images/3959277/original/Ulla-Johnson-Ruffle-Blouse--Size-4--SS--20200630180336.jpg?1593540219" alt=""> {% endcomment %}
 
   {% if tops %}
   <section id="tops" class="bg-light texture">
@@ -92,9 +90,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
+              {% if top.url %}
+              <img src="{{top.url}}" class="card-img-top">
+              {% else %}
               <img src="{{top.imageURL}}" class="card-img-top">
-              <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -124,7 +124,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{bottom.imageURL}}" class="card-img-bottom">
+              {% if bottom.url %}
+              <img src="{{bottom.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{bottom.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -153,7 +157,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{dress.imageURL}}" class="card-img-dress">
+              {% if dress.url %}
+              <img src="{{dress.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{dress.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -182,7 +190,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{shoe.imageURL}}" class="card-img-shoe">
+              {% if shoe.url %}
+              <img src="{{shoe.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{shoe.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -211,7 +223,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{coat.imageURL}}" class="card-img-coat">
+              {% if coat.url %}
+              <img src="{{coat.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{coat.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -240,7 +256,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{handbag.imageURL}}" class="card-img-handbag">
+              {% if handbag.url %}
+              <img src="{{handbag.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{handbag.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>
@@ -269,7 +289,11 @@
         <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
           <div class="card-group">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-              <img src="{{other.imageURL}}" class="card-img-other">
+              {% if other.url %}
+              <img src="{{other.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{other.imageURL}}" class="card-img-top">
+              {% endif %}
               <div class="card-body">
                 <p class="card-text lead text-muted text-center"></p>
               </div>

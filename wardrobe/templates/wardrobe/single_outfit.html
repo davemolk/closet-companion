@@ -10,7 +10,11 @@
     <div class="col-6 col-lg-4 align-items-center">
         {% for item in outfit.items.all %}
             {{item.name}}
-            <img src="{{item.image.url}}" class="card-img-top">
+            {% if item.url %}
+            <img src="{{item.url}}" class="card-img-top">
+            {% else %}
+            <img src="{{item.imageURL}}" class="card-img-top">
+            {% endif %}
         {% endfor %}
     </div>
     <div class="col-6 col-lg-4">

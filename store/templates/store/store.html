@@ -46,7 +46,11 @@
       <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
         <div class="card-group">
           <div class="card shadow p-3 mb-5 bg-body rounded" >
+            {% if item.url %}
+            <img src="{{item.url}}" class="card-img-top">
+            {% else %}
             <img src="{{item.imageURL}}" class="card-img-top">
+            {% endif %}
 
             <div class="box-element product">
                 <h6>Item name: {{item.name}}</h6>
