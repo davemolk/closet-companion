@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: #ffe6a2;
+    background-color: #FFF;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -28,6 +28,29 @@ body{
   margin: 0 auto;
 }
 
+
+/*=======================
+  Footer
+========================*/
+
+.footer {
+	background: #5a606a;
+	text-align: center;
+	color: #FFF;
+}
+
+.copyright{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.copyright p{
+  font-size: 1.1rem;
+}
+
 /*=======================
   Index
 ========================*/
@@ -40,6 +63,16 @@ body{
   line-height: 140%;
   text-align: left;
 }
+
+
+/*=======================
+  Single Object
+========================*/
+.single-item-name {
+  font-size: 14px;
+  line-height: 12px;
+}
+
 
 
 /*=======================
