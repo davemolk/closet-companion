@@ -152,6 +152,7 @@ textarea.input {
   border-radius: 0.5rem;
   border: 0.5px solid;
   transition: all 0.3s ease-in-out;
+  /* margin: 5px; */
 }
 
 
@@ -163,10 +164,11 @@ textarea.input {
 .hero-section {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem;
 }
 
-.hero-section__box {
+/* .hero-section__box {
   margin-bottom: 2rem;
 }
 
@@ -245,7 +247,7 @@ textarea.input {
     min-width: 100%;
     width: 100%;
   }
-}
+} */
 
 /*=======================
   Store
