@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: #FFF;
+    background-color: #fff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -12,7 +12,6 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .box-element {
   box-shadow: hsl(0, 0%, 80%) 0 0 16px;
@@ -26,6 +25,22 @@ body{
   width: 95%;
   max-width: 85rem;
   margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', sans-serif;
+}
+
+/*=======================
+  NavBar
+========================*/
+
+.nav-background{
+  background-color: #f2f2f2cb;
+}
+
+.nav-text{
+  font-family: 'Manrope', sans-serif;
 }
 
 
@@ -83,13 +98,29 @@ body{
   display: block;
 }
 
-
 .form__field {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  /* margin-top: 3.5rem; */
+  margin-bottom: 3.5rem;
 }
 
-.formPage .formWrapper {
+.form__field__bottom {
+  margin-bottom: 3.5rem;
+}
+
+.form-link{
+  color: #4b5362;
+}
+
+.formWrapper{
+  margin-top: 3rem;
+}
+
+.form-group{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* .formPage .formWrapper {
   list-style: none;
   padding: 3.5rem 5rem;
 }
@@ -98,7 +129,7 @@ body{
   font-size: 2.8rem;
   margin-bottom: 1rem;
   margin-top: 2rem;
-}
+} */
 
 
 input.input[type='text'],

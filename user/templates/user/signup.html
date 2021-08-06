@@ -1,20 +1,33 @@
 {% extends 'main.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block content %}
 
 <div class="container-lg">
   <div class="text-center">
-    <h2>Sign up</h2>
+    <h1 class="fw-bold">SIGN UP</h1>
   </div>
-  <div class="row justify-content-center my-5">
-    <div class="col-lg-6">
+  <div class="row justify-content-center my-5 texture">
+    <div class="col-lg-6 formWrapper">
       <form class="shadow p-3 mb-5 bg-body rounded" method="POST">
         {% csrf_token %}
-        {{ form|crispy }}
+        
+        {% for field in form %}
+        <div class="form__field__bottom">
+          <label for="formInput#text">{{field.label}}</label>
+          {{field}}
+
+          {% if field.help_text %}
+            <small>{{field.help_text}}</small>
+          {% endif %}  
+
+          {% for error in field.errors %}
+          <p style="color: red;">{{error}}</p>
+          {% endfor %}
+        </div>
+
+        {% endfor %}
         <div class="row justify-content-center p-3">
-          <button class="btn btn-outline-secondary" type="submit" value="Submit!">Submit</button>
+          <button class="btn btn-secondary" type="submit" value="Submit!">Submit</button>
         </div>
         
       </form>

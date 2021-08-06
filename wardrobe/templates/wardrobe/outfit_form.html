@@ -6,18 +6,18 @@
 
 <div class="container-lg">
   <div class="text-center">
-    <h2>Tell Us About Your Outfit</h2>
+    <h1 class="fw-bold">YOUR OUTFIT</h1>
   </div>
   
-  <div class="row justify-content-center my-5">
-    <div class="col-lg-6">
+  <div class="row justify-content-center my-5 texture">
+    <div class="col-lg-6 formWrapper">
       <form class="shadow p-3 mb-5 bg-body rounded" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
         
         
         <div class="row justify-content-center p-3">
-          <button class="btn btn-outline-secondary" type="submit" value="Submit!">Submit</button>
+          <button class="btn btn-secondary" type="submit" value="Submit!">Submit</button>
         </div>
       </form>
     </div>

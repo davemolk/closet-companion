@@ -32,7 +32,7 @@ def loginUser(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, 'As if!!! Username OR password is incorrect')
+            messages.error(request, 'Ugh, as if!!! Username OR password is incorrect')
 
     return render(request, 'user/login.html')
 
@@ -51,7 +51,7 @@ def signupUser(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            messages.success(request, 'User account created!')
+            messages.success(request, "User account created. You're now rollin' with the homies!")
             login(request, user)
             return redirect('index')
         else:
@@ -104,7 +104,7 @@ def createMessage(request, pk):
 
             message.save()
 
-            messages.success(request, 'Your message was sent successfully.')
+            messages.success(request, 'Message sent. Two very enthusiastic thumbs up!')
             return redirect('store')
 
     context = {'recipient': recipient, 'form': form}

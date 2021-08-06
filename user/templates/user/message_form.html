@@ -2,29 +2,34 @@
 
 {% block content %}
 
-<main class="formPage my-xl">
-        <div class="content-box">
-            <div class="formWrapper">
-                <a href="{% url 'inbox' %}">Back to inbox</a>
-                <br>
+<div class="container-lg">
+    <div class="text-center">
+        <h1 class="fw-bold">EMAIL TIME</h1>
+    </div>
+    <div class="row justify-content-center my-5 texture">
+        <div class="col-lg-6 formWrapper">
+            <form class="shadow-lg p-3 mb-5 bg-body rounded" method="POST">
+                {% csrf_token %}
 
-                <form class="form" method="POST">
-                    {% csrf_token %}
+                <div class="form__field__bottom">
+                    <label for="formInput#text">{{form.subject.label}}</label>
+                    {{form.subject}}
+                </div>
 
-                    <div class="form__field">
-                        <label for="formInput#text">{{form.subject.label}}</label>
-                        {{form.subject}}
-                    </div>
-
-                    <div class="form__field">
-                        <label for="formInput#text">{{form.body.label}}</label>
-                        {{form.body}}
-                    </div> 
-                   
-                    <input class="center btn btn-outline-secondary" type="submit" value="Submit" />
-                </form>
+                <div class="form__field__bottom">
+                    <label for="formInput#text">{{form.body.label}}</label>
+                    {{form.body}}
+                </div> 
+                <div class="row justify-content-center p-3">
+                    <button class="btn btn-secondary" type="submit" value="Submit!">Submit</button>
+                </div>
+            </form>
+            <div class="text-center">
+                <a class="text-center form-link" href="{% url 'inbox' %}">Back to inbox</a>
             </div>
+            
         </div>
-    </main>
+    </div>
+</div>
 
 {% endblock %}

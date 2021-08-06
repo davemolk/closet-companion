@@ -1,18 +1,18 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light pt-5 pb-4 shadow p-3 mb-5 bg-body rounded texture">
+<nav class="navbar navbar-expand-lg navbar-light pt-5 pb-4 shadow p-3 mb-5 rounded nav-background">
     <div class="container-lg">
         <!-- navbar brand / title -->
 
         <a class="navbar-brand" href="/">
         {% if request.user.is_authenticated %}
-        <span class="text-secondary fw-bold">
+        <span class="nav-text fw-bold">
             {{request.user.profile.username}}'s Closet Companion
         </span>
         </a>
         
         {% else %}
         <a class="navbar-brand" href="/">
-        <span class="text-secondary fw-bold">
+        <span class="nav-text fw-bold">
             Closet Companion
         </span>
         </a> 
@@ -29,29 +29,29 @@
         <ul class="navbar-nav">
            
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'items' %}">My Closet</a></span>
+            <a class="nav-link nav-text fw-bold" href="{% url 'items' %}">My Closet</a></span>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'outfits' %}">My Outfits</a></span>
+            <a class="nav-link nav-text fw-bold" href="{% url 'outfits' %}">My Outfits</a></span>
             </li>
 
             <li class="nav-item d-md-none">
-            <a class="nav-link" href="#">Add Item</a>
+            <a class="nav-link nav-text fw-bold" href="#">Add Item</a>
             </li>
             <li class="nav-item d-none d-md-inline">
-            <a class="nav-link" href="{% url 'create-item' %}">Add Item</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'create-item' %}">Add Item</a>
             </li>  
             <li class="nav-item d-md-none">
-            <a class="nav-link" href="#">Add Outfit</a>
+            <a class="nav-link nav-text fw-bold" href="#">Add Outfit</a>
             </li>
             <li class="nav-item d-none d-md-inline">
-            <a class="nav-link" href="{% url 'create-outfit' %}">Add Outfit</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'create-outfit' %}">Add Outfit</a>
             </li>  
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'inbox' %}">Inbox</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'inbox' %}">Inbox</a>
             </li>
             <li class="nav-item d-none d-md-inline">
-            <a class="nav-link" href="{% url 'store' %}">Store</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'store' %}">Store</a>
             </li> 
             <div>
                 <a href="{% url 'cart' %}">                 
@@ -64,17 +64,17 @@
                 {% endif %}
             </div>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'logout' %}">Logout</a>
             </li>
            
         </ul>
         {% else %}
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+            <a class="nav-link nav-text fw-bold" href="{% url 'signup' %}">SignUp</a>
             </li>
         </ul>
         {% endif %}
