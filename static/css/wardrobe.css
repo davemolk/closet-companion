@@ -163,10 +163,11 @@ textarea.input {
 .hero-section {
   display: flex;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .hero-section__box {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .hero-section__box > h2,
@@ -219,7 +220,7 @@ textarea.input {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 .hero-section__search > .form label {
@@ -483,3 +484,4 @@ textarea.input {
   height: 25px;
   margin-left: -10px;
 }
+

@@ -4,7 +4,7 @@
 {% block content %}
 
 
-  <div class="p-1 my-container active-cont"> 
+  <div class="p-1 my-container"> 
       <a class="btn btn-secondary btn-sm" id="menu-btn">sidebar</a>  
   </div>
 
@@ -14,75 +14,24 @@
 
   <div class="container-lg">
     <div class="text-center">
-      <h2>Welcome to Your Closet</h2>
-      <p class="lead text-muted">Pick a category from the left, use the search field below, or just start scrolling!</p>
+      <h1 class="fw-bold">YOUR ITEMS</h1>
+      <p class="text-muted">Pick a category from the left, use the search field below, or just start scrolling!</p>
     </div>
   </div>
 
-{% comment %} 
-  <nav class="navbar navbar-expand-md navbar-light">
-    <div class="container-lg">
-      <!-- toggle button for mobile nav -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#items-nav" aria-controls="items-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- navbar links -->
-      <div class="collapse navbar-collapse justify-content-center align-center" id="items-nav">
-        <ul class="navbar-nav">
-          {% if tops %}
-          <li class="nav-item">
-            <a class="nav-link" href="#tops">Tops</a>
-          </li>
-          {% endif %}
-          {% if bottoms %}
-          <li class="nav-item">
-            <a class="nav-link" href="#bottoms">Bottoms</a>
-          </li>
-          {% endif %}
-          {% if dresses %}
-          <li class="nav-item">
-            <a class="nav-link" href="#dresses">Dresses</a>
-          </li>
-          {% endif %}
-          {% if shoes %}
-          <li class="nav-item">
-            <a class="nav-link" href="#shoes">Shoes</a>
-          </li>
-          {% endif %}
-          {% if coats %}
-          <li class="nav-item">
-            <a class="nav-link" href="#outerwear">Outerwear</a>
-          </li>
-          {% endif %}
-          {% if handbags %}
-          <li class="nav-item">
-            <a class="nav-link" href="#handbags">Handbags</a>
-          </li>
-          {% endif %}
-          {% if others %}
-          <li class="nav-item">
-            <a class="nav-link" href="#other">Miscellaneous</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </nav> {% endcomment %}
-
   <section class="hero-section text-center">
-      <div class="container container--narrow">
+      <div class="container">
 
           <div class="hero-section__search">
               <form id='searchForm' class="form" action="" method="GET">
-                  <div class="form__field">
-                      <label for="formInput#search">Search:</label>
+                  <div>
+                      <label for="formInput#search">SEARCH:</label>
                       <input class="input input--text" id="formInput#search" type="text" name="search_query"
                           placeholder="Deets here" value="" />
                   </div>
 
-                  <input class="btn btn-outline-secondary" type="submit" value="Search" />
-                  <input class="btn btn-outline-secondary" type="submit" value="Reset" name='' />
+                  <input class="btn btn-secondary" type="submit" value="Search" />
+                  <input class="btn btn-secondary" type="submit" value="Reset" name='' />
               </form>
           </div>
       </div>
