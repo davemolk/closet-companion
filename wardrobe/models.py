@@ -29,7 +29,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=300, blank=True, null=True)
     type = models.CharField(max_length=100, choices = item_type, default=shoe)
-    image = ResizedImageField(size=[200, 200], blank=True, null=True, upload_to="images")
+    image = ResizedImageField(size=[961, 1140], blank=True, null=True, upload_to="images", default="images/itemdefault.jpg")
     url = models.URLField(max_length=200, blank=True, null=True)
     sell = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
