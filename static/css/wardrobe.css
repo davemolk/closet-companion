@@ -168,87 +168,6 @@ textarea.input {
   padding: 0.5rem;
 }
 
-/* .hero-section__box {
-  margin-bottom: 2rem;
-}
-
-.hero-section__box > h2,
-.hero-section__box > h2 > span {
-  font-size: 4rem;
-  color: var(--color-light);
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 1000px) {
-  .hero-section__box > h2,
-  .hero-section__box > h2 > span {
-    font-size: 3.4rem;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .hero-section__box > h2,
-  .hero-section__box > h2 > span {
-    font-size: 3rem;
-    line-height: 1.5;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .hero-section__box > h2,
-  .hero-section__box > h2 > span {
-    font-size: 2.4rem;
-    line-height: 1.5;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .hero-section__box > h2,
-  .hero-section__box > h2 > span {
-    font-size: 2rem;
-  }
-}
-
-.hero-section__box > h2 {
-  font-weight: 300;
-}
-
-.hero-section__box > h2 > span {
-  font-weight: 700;
-}
-
-.hero-section__search > .form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
-.hero-section__search > .form label {
-  position: absolute;
-  left: -9999px;
-}
-
-.hero-section__search > .form input.input--text {
-  width: 50rem;
-}
-
-@media screen and (max-width: 700px) {
-  .hero-section__search > .form {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    align-items: stretch;
-  }
-
-  .hero-section__search > .form input.input--text,
-  .hero-section__search > .form input {
-    min-width: 100%;
-    width: 100%;
-  }
-} */
-
 /*=======================
   Store
 ========================*/
@@ -449,10 +368,9 @@ textarea.input {
 
 
 .side-navbar {
-  width: 120px;
-  height: 40%;
-  position: fixed;
-  margin-left: -300px;
+  width: 110px;
+  position: relative;
+  margin-left: -700px;
   background-color: #fff;
   opacity: .8;
   transition: 0.5s;
@@ -474,7 +392,7 @@ textarea.input {
 
 /* for main section */
 .active-cont {
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 #menu-btn {
@@ -487,3 +405,11 @@ textarea.input {
   margin-left: -10px;
 }
 
+
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
