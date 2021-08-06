@@ -439,3 +439,47 @@ textarea.input {
   color: #a94442;
 }
 
+
+/*=======================
+  Sidebar
+========================*/
+
+
+.side-navbar {
+  width: 120px;
+  height: 40%;
+  position: fixed;
+  margin-left: -300px;
+  background-color: #fff;
+  opacity: .8;
+  transition: 0.5s;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+  background-color: #ffffff26;
+}
+
+.my-container {
+  transition: 0.4s;
+}
+
+.active-nav {
+  margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+  margin-left: 40px;
+}
+
+#menu-btn {
+  background-color:#5a606a;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: inline-block; 
+  height: 25px;
+  margin-left: -10px;
+}

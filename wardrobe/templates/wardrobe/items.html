@@ -3,13 +3,23 @@
 
 {% block content %}
 
+
+  <div class="p-1 my-container active-cont"> 
+      <a class="btn btn-secondary btn-sm" id="menu-btn">sidebar</a>  
+  </div>
+
+
+  {% include 'sidebar.html' %}
+
+
   <div class="container-lg">
     <div class="text-center">
       <h2>Welcome to Your Closet</h2>
-      <p class="lead text-muted">Click on a category below or use the search field to find something specific. Or just start scrolling!</p>
+      <p class="lead text-muted">Pick a category from the left, use the search field below, or just start scrolling!</p>
     </div>
   </div>
 
+{% comment %} 
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-lg">
       <!-- toggle button for mobile nav -->
@@ -58,7 +68,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> {% endcomment %}
 
   <section class="hero-section text-center">
       <div class="container container--narrow">

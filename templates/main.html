@@ -34,6 +34,12 @@
   </head>
   <body>
     {% include 'navbar.html' %}
+    {% comment %} {% include 'sidebar.html' %} {% endcomment %}
+    {% comment %} <div class="p-1 my-container active-cont"> 
+      <a class="btn border-0" id="menu-btn">
+      <i class="bx bx-menu"></i>
+      </a>  
+    </div> {% endcomment %}
 
     {% comment %} {% if messages %}
         <ul class="messages">
@@ -68,5 +74,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/messages.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/sidebar.js' %}"></script>
   </body>
 </html>
