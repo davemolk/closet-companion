@@ -52,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 	background: #5a606a;
 	text-align: center;
 	color: #FFF;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .copyright{
@@ -64,6 +68,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .copyright p{
   font-size: 1.1rem;
+}
+
+.github{
+	font-size: 24px;
+	color: rgb(255, 255, 255);
 }
 
 /*=======================
