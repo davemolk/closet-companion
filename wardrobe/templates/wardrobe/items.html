@@ -10,10 +10,8 @@
         <a class="btn btn-secondary btn-sm" id="menu-btn">sidebar</a>  
       </div>
       {% include 'sidebar.html' %}
-      </div>
+    </div>
     <div class="col-lg-11">
-
-
       <div class="container-lg">
         <div class="text-center">
           <h1 class="fw-bold">YOUR ITEMS</h1>
@@ -23,26 +21,224 @@
 
       <section class="hero-section text-center">
         <div class="hero-section__search">
-            <form id='searchForm' class="form" action="" method="GET">
-                <div>
-                    <label for="formInput#search">SEARCH:</label>
-                    <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                        placeholder="Deets here" value="" />
-                </div>
-                <div style="margin-top: 5px">
-                  <input class="btn btn-secondary" type="submit" value="Search" />
-                  <input class="btn btn-secondary" type="submit" value="Reset" name='' />
-                </div>
-            </form>
+          <form id='searchForm' class="form" action="" method="GET">
+            <div>
+              <label for="formInput#search">SEARCH:</label>
+              <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                  placeholder="Deets here" value="" />
+            </div>
+            <div style="margin-top: 5px">
+              <input class="btn btn-secondary" type="submit" value="Search" />
+              <input class="btn btn-secondary" type="submit" value="Reset" name='' />
+            </div>
+          </form>
         </div>
-      
       </section>
+    </div>
+  </div>    
+</div>  
 
-      {% if tops %}
-      <section id="tops" class="bg-light texture">
-        <div class="container-lg">
+
+<div class="items-line"></div>
+
+{% if tops %}
+<section id="tops">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for top in tops %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' top.id %}">
+          {% if top.url %}
+          <img src="{{top.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{top.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{top.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if bottoms %}
+<section id="bottoms">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for bottom in bottoms %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' bottom.id %}">
+          {% if bottom.url %}
+          <img src="{{bottom.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{bottom.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{bottom.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if dresses %}
+<section id="dresses">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for dress in dresses %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' dress.id %}">
+          {% if dress.url %}
+          <img src="{{dress.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{dress.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{dress.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if shoes %}
+<section id="shoes">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for shoe in shoes %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' shoe.id %}">
+          {% if shoe.url %}
+          <img src="{{shoe.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{shoe.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{shoe.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if coats %}
+<section id="outerwear">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for coat in coats %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' coat.id %}">
+          {% if coat.url %}
+          <img src="{{coat.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{coat.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{coat.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if handbags %}
+<section id="handbags">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for handbag in handbags %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' handbag.id %}">
+          {% if handbag.url %}
+          <img src="{{handbag.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{handbag.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{handbag.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="items-line"></div>
+
+{% if others %}
+<section id="others">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2">
+      {% for other in others %}
+      <div class="col mb-4">
+        <div class="card h-100">
+          <a href="{% url 'item' other.id %}">
+          {% if other.url %}
+          <img src="{{other.url}}" class="card-img-top">
+          {% else %}
+          <img src="{{other.imageURL}}" class="card-img-top">
+          {% endif %}
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{other.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+      {% comment %} <section id="tops" class="texture">
+        <div class="container">
           <div class="text-center">
-            <h2>Tops</h2>
+            <h3 class="fw-bold">TOPS</h3>
           </div>
 
           <div class="row my-2 justify-content-center">
@@ -70,13 +266,13 @@
           </div>
         </div>
       </section>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
-      {% if bottoms %}
+      {% comment %} {% if bottoms %}
       <section id="bottoms" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Bottoms</h2>
+            <h3 class="fw-bold">BOTTOMS</h3>
           </div>
 
           <div class="row my-2 justify-content-center">
@@ -103,13 +299,13 @@
           </div>
         </div>
       </section>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
-      {% if dresses %}
+      {% comment %} {% if dresses %}
       <section id="dresses" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Dresses</h2>
+            <h3 class="fw-bold">DRESSES</h3>
           </div>
 
           <div class="row my-2 justify-content-center">
@@ -142,7 +338,7 @@
       <section id="shoes" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Shoes</h2>
+            <h3 class="fw-bold">SHOES</h3>
           </div>
 
           <div class="row my-2 justify-content-center">
@@ -175,7 +371,7 @@
       <section id="outerwear" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Outerwear</h2>
+            <h3 class="fw-bold">OUTERWEAR</h3>
           </div>
 
           <div class="row my-2 justify-content-center">
@@ -208,7 +404,7 @@
       <section id="handbags" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Handbags</h2>
+            <h3 class="fw-bold">HANDBAGS</h3>
           </div>
 
           <div class="row my-2 justify-content-center">    
@@ -241,7 +437,7 @@
       <section id="other" class="bg-light texture">
         <div class="container-lg">
           <div class="text-center">
-            <h2>Miscellaneous</h2>
+            <h3 class="fw-bold">MISCELLANEOUS</h3>
           </div>
 
           <div class="row my-2 justify-content-center">    
@@ -268,7 +464,7 @@
           </div>
         </div>
       </section>
-      {% endif %}
-    </div>
-</div>
+      {% endif %} {% endcomment %}
+    {% comment %} </div>
+</div> {% endcomment %}
 {% endblock %}

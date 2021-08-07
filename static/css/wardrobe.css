@@ -31,6 +31,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Manrope', sans-serif;
 }
 
+.items-line{
+	background: #ffe6a2;
+	width: 100px;
+	height: 10px;
+	margin: 40px auto;
+}
+
+
 /*=======================
   NavBar
 ========================*/
