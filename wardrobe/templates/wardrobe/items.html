@@ -5,14 +5,14 @@
 
 <div class="container-lg">
   <div class="row">
-    <div class="col-lg-1">
+    <div class="col-sm-1">
       <div class="p-1 my-container"> 
         <a class="btn btn-secondary btn-sm" id="menu-btn">sidebar</a>  
       </div>
       {% include 'sidebar.html' %}
     </div>
-    <div class="col-lg-11">
-      <div class="container-lg">
+    <div class="col-sm-11">
+      <div class="container">
         <div class="text-center">
           <h1 class="fw-bold">YOUR ITEMS</h1>
           <p class="text-muted">Activate the sidebar on the left, use the search field below, or just start scrolling!</p>
@@ -44,7 +44,7 @@
 {% if tops %}
 <section id="tops">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for top in tops %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -55,8 +55,9 @@
           <img src="{{top.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{top.name}}</p>
+          
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{top.name}}</p>
           </div>
         </div>
       </div>
@@ -72,7 +73,7 @@
 {% if bottoms %}
 <section id="bottoms">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for bottom in bottoms %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -83,8 +84,8 @@
           <img src="{{bottom.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{bottom.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{bottom.name}}</p>
           </div>
         </div>
       </div>
@@ -100,7 +101,7 @@
 {% if dresses %}
 <section id="dresses">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for dress in dresses %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -111,8 +112,8 @@
           <img src="{{dress.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{dress.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{dress.name}}</p>
           </div>
         </div>
       </div>
@@ -128,7 +129,7 @@
 {% if shoes %}
 <section id="shoes">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for shoe in shoes %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -139,8 +140,8 @@
           <img src="{{shoe.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{shoe.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{shoe.name}}</p>
           </div>
         </div>
       </div>
@@ -156,7 +157,7 @@
 {% if coats %}
 <section id="outerwear">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for coat in coats %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -167,8 +168,8 @@
           <img src="{{coat.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{coat.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{coat.name}}</p>
           </div>
         </div>
       </div>
@@ -184,7 +185,7 @@
 {% if handbags %}
 <section id="handbags">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for handbag in handbags %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -195,8 +196,8 @@
           <img src="{{handbag.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{handbag.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{handbag.name}}</p>
           </div>
         </div>
       </div>
@@ -212,7 +213,7 @@
 {% if others %}
 <section id="others">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-2">
       {% for other in others %}
       <div class="col mb-4">
         <div class="card h-100">
@@ -223,8 +224,8 @@
           <img src="{{other.imageURL}}" class="card-img-top">
           {% endif %}
           </a>
-          <div class="card-body">
-            <p class="card-text">{{other.name}}</p>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text mt-auto text-center">{{other.name}}</p>
           </div>
         </div>
       </div>
@@ -235,236 +236,4 @@
 {% endif %}
 
 
-      {% comment %} <section id="tops" class="texture">
-        <div class="container">
-          <div class="text-center">
-            <h3 class="fw-bold">TOPS</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">
-          {% for top in tops %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if top.url %}
-                  <img src="{{top.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{top.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' top.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %} {% endcomment %}
-
-      {% comment %} {% if bottoms %}
-      <section id="bottoms" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">BOTTOMS</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">
-          {% for bottom in bottoms %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if bottom.url %}
-                  <img src="{{bottom.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{bottom.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' bottom.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %} {% endcomment %}
-
-      {% comment %} {% if dresses %}
-      <section id="dresses" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">DRESSES</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">
-          {% for dress in dresses %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if dress.url %}
-                  <img src="{{dress.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{dress.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' dress.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %}
-
-      {% if shoes %}
-      <section id="shoes" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">SHOES</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">
-          {% for shoe in shoes %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if shoe.url %}
-                  <img src="{{shoe.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{shoe.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' shoe.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %}
-
-      {% if coats %}
-      <section id="outerwear" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">OUTERWEAR</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">
-          {% for coat in coats %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if coat.url %}
-                  <img src="{{coat.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{coat.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' coat.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %}
-
-      {% if handbags %}
-      <section id="handbags" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">HANDBAGS</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">    
-          {% for handbag in handbags %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if handbag.url %}
-                  <img src="{{handbag.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{handbag.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' handbag.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %}
-
-      {% if others %}
-      <section id="other" class="bg-light texture">
-        <div class="container-lg">
-          <div class="text-center">
-            <h3 class="fw-bold">MISCELLANEOUS</h3>
-          </div>
-
-          <div class="row my-2 justify-content-center">    
-          {% for other in others %}
-            <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-              <div class="card-group">
-                <div class="card shadow p-3 mb-5 bg-body rounded" >
-                  {% if other.url %}
-                  <img src="{{other.url}}" class="card-img-top">
-                  {% else %}
-                  <img src="{{other.imageURL}}" class="card-img-top">
-                  {% endif %}
-                  <div class="card-body">
-                    <p class="card-text lead text-muted text-center"></p>
-                  </div>
-                  <div class="card-footer text-center py-4">
-                    <a href="{% url 'item' other.id %}" class="btn btn-outline-secondary btn-lg mt-3">More Details</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-          <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-          </div>
-        </div>
-      </section>
-      {% endif %} {% endcomment %}
-    {% comment %} </div>
-</div> {% endcomment %}
 {% endblock %}
