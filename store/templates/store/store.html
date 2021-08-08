@@ -42,7 +42,7 @@
         {% if request.user.profile != item.owner %}
         {% if item.price %}
           <div class="col mb-4">
-            <div class="card h-100">
+            <div class="card h-100 py-4">
                 <a href="{% url 'sale-item' item.id %}">
                 {% if item.url %}
                 <img src="{{item.url}}" class="card-img-top">
@@ -56,8 +56,8 @@
                   {% comment %} <p class="card-text text-center">available from {{item.owner}}</p>
                   <p class="card-text text-center">${{item.price|floatformat:2}}</p> {% endcomment %}
                 </div>
-                <div class="card-footer text-center py-4">
-                    <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <div class="card-footer text-center">
+                    <button data-product={{item.id}} data-action="add" class="btn btn-sm btn-secondary add-btn update-cart">Add to Cart</button>
                 </div>
 
             </div>

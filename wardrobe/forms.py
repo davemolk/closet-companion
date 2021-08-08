@@ -6,7 +6,10 @@ from django.utils.safestring import mark_safe
 
 class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
     def label_from_instance(self, items):
-        return mark_safe("<img src='%s'/>" % items.imageURL)
+        if items.url:
+            return mark_safe("<img src='%s'/>" % items.url)
+        else:
+            return mark_safe("<img src='%s'/>" % items.imageURL)
         # return "%s" % items.imageURL
 
 class ItemForm(ModelForm):
