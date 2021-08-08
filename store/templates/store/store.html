@@ -9,74 +9,78 @@
         <h1 class="fw-bold">CLOSET COMMERCE</h1>
         <p class="text-muted">Use the search field to find something special, or just start scrolling! </p>
     </div>
-</div>
 
-<section class="hero-section text-center">
-  <div class="hero-section__search">
-      <form id='searchForm' class="form" action="" method="GET">
-          <div>
-              <label for="formInput#search">SEARCH:</label>
-              <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                  placeholder="Deets here" value="" />
-          </div>
-          <div style="margin-top: 5px">
-            <input class="btn btn-secondary" type="submit" value="Search" />
-            <input class="btn btn-secondary" type="submit" value="Reset" name='' />
-          </div>
-      </form>
-  </div>
 
-</section>
-
-<div class="text-center" style="margin-top: 5px">
-  <p class="italic text-muted"><small>Click on "View Item" to learn more about the item and message the seller with any questions.</small></p>
-  {% comment %} <p class="lead text-muted">Don't see anything? Please check in again with us soon!</p> {% endcomment %}
-</div>
-<div class="container-lg bg-light texture">
-    <div class="text-center">
-      <h2>Looking for a good home</h2>
-    </div>
-
-    <div class="row my-2 justify-content-center">
-    
-    {% for item in items %}
-    {% if request.user.profile != item.owner %}
-    {% if item.price %}
-      <div class="col-8 col-lg-4 col-xl-3 mb-3 d-flex align-items-stretch">
-        <div class="card-group">
-          <div class="card shadow p-3 mb-5 bg-body rounded" >
-            {% if item.url %}
-            <img src="{{item.url}}" class="card-img-top">
-            {% else %}
-            <img src="{{item.imageURL}}" class="card-img-top">
-            {% endif %}
-
-            <div class="box-element product">
-                <h6>Item name: {{item.name}}</h6>
-                <h6>Item seller: {{item.owner}}</h6>
-                <h6>Item price: ${{item.price|floatformat:2}}</h6>
-                <hr>
-                <div class="card-footer text-center py-4">
-                  <a href="{% url 'sale-item' item.id %}" class="btn btn-outline-secondary">View Item</a>
-                  <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-                </div>
-            </div>
-          </div>
-        </div>
+    <section class="hero-section text-center">
+      <div class="hero-section__search">
+          <form id='searchForm' class="form" action="" method="GET">
+              <div>
+                  <label for="formInput#search">SEARCH:</label>
+                  <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                      placeholder="Deets here" value="" />
+              </div>
+              <div style="margin-top: 5px">
+                <input class="btn btn-secondary" type="submit" value="Search" />
+                <input class="btn btn-secondary" type="submit" value="Reset" name='' />
+              </div>
+          </form>
       </div>
-      {% endif %}
-      {% endif %}
-    {% endfor %}
-    <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
-    </div>
-  </div>
+    </section>
 
-{% else %}
-<div class="container-lg">
-  <div class="text-center">
-      <h1 class="fw-bold">CLOSET COMMERCE</h1>
-      <p class="italic text-muted">Nothing available today, but please check back soon! </p>
-  </div>
+    <div class="text-center" style="margin-top: 5px">
+      <p class="italic text-muted"><small>Click on "View Item" to learn more about the item and message the seller with any questions.</small></p>
+    </div>
+
+    <div class="container">
+        <div class="text-center">
+          <h3 class="fw-bold">LOOKING FOR A GOOD HOME</h3>
+        </div>
+
+        <div class="row row-cols-2">
+        
+        {% for item in items %}
+        {% if request.user.profile != item.owner %}
+        {% if item.price %}
+          <div class="col mb-4">
+            <div class="card h-100">
+                <a href="{% url 'sale-item' item.id %}">
+                {% if item.url %}
+                <img src="{{item.url}}" class="card-img-top">
+                {% else %}
+                <img src="{{item.imageURL}}" class="card-img-top">
+                {% endif %}
+                </a>
+
+                <div class="card-body d-flex flex-column">
+                  <p class="store-text text-center">{{item.name}} is available from {{item.owner}} for ${{item.price|floatformat:2}}</p>
+                  {% comment %} <p class="card-text text-center">available from {{item.owner}}</p>
+                  <p class="card-text text-center">${{item.price|floatformat:2}}</p> {% endcomment %}
+                </div>
+                <div class="card-footer text-center py-4">
+                    <button data-product={{item.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                </div>
+
+            </div>
+              
+          </div>
+
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        </div>
+        <div class="text-center">
+          <a class="nav-link" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
+        </div>
+    </div>
+    {% else %}
+    <div class="container-lg">
+      <div class="text-center">
+          <h1 class="fw-bold">CLOSET COMMERCE</h1>
+          <p class="italic text-muted">Nothing available today, but please check back soon! </p>
+      </div>
+    </div>
+
+
 </div>
 {% endif %}
 {% endblock %} 
