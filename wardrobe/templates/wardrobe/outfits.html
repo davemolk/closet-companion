@@ -3,91 +3,116 @@
 
 {% block content %}
 
-  <div class="container-lg">
+<div class="container-lg">
+  <div class="row">
     <div class="text-center">
       <h1 class="fw-bold">YOUR OUTFITS</h1>
+    </div> 
+  </div>
+</div>
+
+
+<section id="outfits">
+  <div class="container">
+    <div class="row row-cols-2">
+      {% for outfit in outfits %}
+      <div class="col my-4">
+        <p class="outfit-text">Outfit Name: {{outfit.name}}</p>
+        <p class="outfit-text"><small>Outfit Description: {{outfit.description}}</small></p>
+
+        <div class="card h-100">
+          <a href="{% url 'outfit' outfit.id %}">
+          
+          {% for item in outfit.items.all %}
+              {% if item.url %}
+              <img src="{{item.url}}" class="card-img-top">
+              {% else %}
+              <img src="{{item.imageURL}}" class="card-img-top">
+              {% endif %}
+          {% endfor %}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
+</section>
 
-  <section id="outfits" class="bg-light texture">
-    <div class="container-lg">
-    
-      <div class="row my-2 align-items-center justify-content-center">
-      {% for outfit in outfits %}
-        <div class="col-8 col-lg-4 col-xl-3 mb-3">
-          <div class="card-group">
-            <div class="card shadow p-3 mb-5 bg-body rounded">
-              <div class="card-body text-center py-4">
-                <p>Name: {{outfit.name}}</p>
-                <a href="{% url 'outfit' outfit.id %}" class="btn btn-outline-secondary">More Details</a>
-                {% for item in outfit.items.all %}
-                    {% if item.type == "top" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "bottom" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "dress" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "shoe" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "outerwear" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "handbag" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                    {% if item.type == "other" %}
-                        {{item.name}}
-                        {% if item.url %}
-                        <img src="{{item.url}}" class="card-img-top">
-                        {% else %}
-                        <img src="{{item.imageURL}}" class="card-img-top">
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-              </div>
+{% endblock %}
+
+{% comment %} 
+          <div class="card shadow p-3 mb-5 bg-body rounded">
+            <div class="card-body text-center py-4">
+              <p>Name: {{outfit.name}}</p>
+              <a href="{% url 'outfit' outfit.id %}" class="btn btn-outline-secondary">More Details</a>
+              {% for item in outfit.items.all %}
+                  {% if item.type == "top" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "bottom" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "dress" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "shoe" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "outerwear" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "handbag" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+                  {% if item.type == "other" %}
+                      {{item.name}}
+                      {% if item.url %}
+                      <img src="{{item.url}}" class="card-img-top">
+                      {% else %}
+                      <img src="{{item.imageURL}}" class="card-img-top">
+                      {% endif %}
+                  {% endif %}
+              {% endfor %}
             </div>
           </div>
         </div>
-      {% endfor %}
-      <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
       </div>
+    {% endfor %}
+    <a class="nav-link text-center" href="#"><p class="fst-italic fw-light text-muted">(to top)</p></a>
     </div>
-  </section>
+  </div> {% endcomment %}
+{% comment %} </section>
 
 
 
-{% endblock %}
+{% endblock %} {% endcomment %}
