@@ -4,9 +4,9 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col">
         <div class="box-element texture">
-            <a href="{% url 'store' %}" class="btn btn-outline-secondary">&#x2190; Continue Shopping</a>
+            <a href="{% url 'store' %}" class="btn btn-secondary btn-sm">Back to Shopping</a>
             <br>
             <br>
             <table class="table">
@@ -14,7 +14,7 @@
                     <th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
                     <th><h5>Total: <strong>${{order.get_cart_total|floatformat:2}}</strong></h5></th>
                     <th>
-                        <a style="float:right; margin: 5px" class="btn btn-outline-secondary" href="{% url 'checkout' %}">Checkout</a>
+                        <a style="float:right; margin: 5px" class="btn btn-secondary" href="{% url 'checkout' %}">Checkout</a>
                     </th>
                 </tr>
             </table>
@@ -22,21 +22,26 @@
         <br>
         <div class="box-element">  
             <div class="cart-row">
-                <div style="flex:2"></div>
+                <div style="flex:3"></div>
                 <div style="flex:1"><strong>Item</strong></div>
                 <div style="flex:1"><strong>Seller</strong></div>
                 <div style="flex:1"><strong>Price</strong></div>
                 {% comment %} <div style="flex:1"><strong>Quantity</strong></div> {% endcomment %}
-                <div style="flex:1"><strong>Total</strong></div>
+                {% comment %} <div style="flex:1"><strong>Total</strong></div> {% endcomment %}
                 <div style="flex:1"><strong>Remove</strong></div>
             </div>
 
             {% for orderItem in orderItems %}
             <div class="cart-row">
-                <div style="flex:2"><img class="row-image" src="{{orderItem.item.imageURL}}"></div>
+                {% if orderItem.item.url %}
+                <div style="flex:3"><img class="row-image" src="{{orderItem.item.url}}"></div>
+                {% else %}
+                <div style="flex:3"><img class="row-image" src="{{orderItem.item.imageURL}}"></div>
+                {% endif %}
+                
                 <div class="stretch" style="flex:1">{{orderItem.item.name}}</div>
                 <div style="flex:1">{{orderItem.item.owner}}</div>
-                <div style="flex:1">{{orderItem.item.price|floatformat:2}}</div>
+                {% comment %} <div style="flex:1">{{orderItem.item.price|floatformat:2}}</div> {% endcomment %}
                 <div style="flex:1">${{orderItem.get_total}}</div>
                 <div style="flex:1">
                     <div class="quantity">
