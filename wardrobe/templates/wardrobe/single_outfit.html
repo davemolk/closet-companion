@@ -3,32 +3,36 @@
 {% block content %}
 
 <div class="container-lg">
-  <div class="text-center">
-    <h2>Let's Take a Closer Look</h2>
+  <div class="text-center py-4">
+    <h1 class="fw-bold">A CLOSER LOOK</h1>
   </div>
-  <div class="row my-5 g-5 justify-content-around">
-    <div class="col-6 col-lg-4 align-items-center">
-        {% for item in outfit.items.all %}
-            {{item.name}}
-            {% if item.url %}
-            <img src="{{item.url}}" class="card-img-top">
-            {% else %}
-            <img src="{{item.imageURL}}" class="card-img-top">
-            {% endif %}
-        {% endfor %}
-    </div>
-    <div class="col-6 col-lg-4">
-      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
-        <div class="card-body">
 
-          <h5 class="card-title">Name: {{ outfit.name }}</h5>
-          <p class="card-text">Description: {{ outfit.description|linebreaksbr }}</p>
-          
-          <div class="row align-items-center">
+  <div class="row row-cols-2">
+    <div class="col">
+      <div class="card h-100">
+      {% for item in outfit.items.all %}
+        {% if item.url %}
+        <img src="{{item.url}}" class="card-img-top">
+        {% else %}
+        <img src="{{item.imageURL}}" class="card-img-top">
+        {% endif %}
+        <div class="card-body d-flex flex-column">
+          <p class="card-text text-center pb-5">{{item.name}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Outfit Name: {{ outfit.name }}</h5>
+
+          <p class="card-text py-3">Description: {{ outfit.description|linebreaksbr }}</p>
+          <div class="">
             <a class="btn btn-secondary btn-sm" href="{% url 'update-outfit' outfit.id %}">Update Outfit</a>
             <a class="btn btn-secondary btn-sm" href="{% url 'delete-outfit' outfit.id %}">Delete Outfit</a>
           </div>
-
         </div>
       </div>  
     </div>
@@ -36,3 +40,8 @@
 </div>
 
 {% endblock %}
+
+
+
+
+
