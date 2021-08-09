@@ -13,8 +13,8 @@
     <div class="col-lg-6 formWrapper">
       <form class="shadow p-3 mb-5 bg-body rounded" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {% comment %} {{ form|crispy }} {% endcomment %}
-        <div class="form-row">
+        {{ form|crispy }}
+        {% comment %} <div class="form-row">
           <div class="form-group col-md-6 mb-0">
             {{form.name|as_crispy_field}}
           </div>
@@ -28,9 +28,7 @@
           <div class="container">
             {{form.items|as_crispy_field}}
           </div>
-        </div> 
-
-        <p>some stuff</p>
+        </div>  {% endcomment %}
         
         
         <div class="row justify-content-center p-3">
