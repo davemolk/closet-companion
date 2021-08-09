@@ -4,27 +4,31 @@
 
 <div class="container-lg">
   <div class="text-center">
-    <h2>Let's Take a Closer Look</h2>
+    <h1 class="fw-bold">A CLOSER LOOK</h1>
   </div>
-  <div class="row my-5 g-5 justify-content-around align-items-center">
-    <div class="col-6 col-lg-4">
-
+  <div class="row row-cols-2">
+    <div class="col">
+      <div class="card h-100">
       {% if item.url %}
       <img src="{{item.url}}" class="img-fluid" alt="item">
       {% else %}
       <img src="{{item.imageURL}}" class="img-fluid" alt="item">
       {% endif %}
+      </div>
     </div>
-    <div class="col-6 col-lg-4">
-      <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+
+    <div class="col d-flex justify-content-center">
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Item Name: {{ item.name }}</h5>
-          <p class="card-text">Description: {{ item.description|linebreaksbr }}</p>
-          {% if item.sell%}
-          <p class="card-text">Price: ${{ item.price }}</p>
+          <h5 class="card-title text-center">Item Name: {{ item.name }}</h5>
+          {% if item.description %}
+          <p class="card-text py-3">Description: {{ item.description|linebreaksbr }}</p>
           {% endif %}
-          {% if item.tags%}
-          <div>Tags:
+          {% if item.sell%}
+          <p class="card-text py-3">Price: {{ item.price }}</p>
+          {% endif %}
+          {% if item.tags %}
+          <div class="">Tags: 
           {% for tag in tags %}
             <span class="tag">
               <small>{{ tag }}</small>
@@ -32,9 +36,12 @@
           {% endfor %}
           </div>
           {% endif %}
-          
-          <a href="{% url 'create-message' item.owner.id %}" class="btn btn-outline-secondary">Message {{item.owner}}</a>
-          <a href="{% url 'store' %}" class="btn btn-outline-secondary">Head back to store</a>
+    
+          <div class="">
+            <a href="{% url 'create-message' item.owner.id %}" class="btn btn-secondary">Message {{item.owner}}</a>
+            <a href="{% url 'store' %}" class="btn btn-secondary">Head back to store</a>
+          </div>
+
         </div>
       </div>  
     </div>
