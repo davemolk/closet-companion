@@ -22,7 +22,7 @@
         <div class="card-body">
 
           <h5 class="card-title">Name: {{ outfit.name }}</h5>
-          <p class="card-text">Description: {{ outfit.description }}</p>
+          <p class="card-text">Description: {{ outfit.description|linebreaksbr }}</p>
           
           <div class="row align-items-center">
             <a class="btn btn-secondary btn-sm" href="{% url 'update-outfit' outfit.id %}">Update Outfit</a>
