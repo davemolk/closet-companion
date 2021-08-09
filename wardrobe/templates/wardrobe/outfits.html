@@ -17,8 +17,8 @@
     <div class="row row-cols-2">
       {% for outfit in outfits %}
       <div class="col my-4">
-        <p class="outfit-text">Outfit Name: {{outfit.name}}</p>
-        <p class="outfit-text"><small>Outfit Description: {{outfit.description}}</small></p>
+        <p>Outfit Name: {{outfit.name}}</p>
+        <p>Outfit Description: {{outfit.description}}</p>
 
         <div class="card h-100">
           <a href="{% url 'outfit' outfit.id %}">

@@ -24,7 +24,7 @@
         {% csrf_token %}
         {{ form|crispy }}
        
-        <div>
+        <div class="pt-5">
           <label for="formInput#text">Add new tags (single words only, and please separate by commas)</label>
           <textarea name="newtags" class="input" placeholder="new tags here!"></textarea>
         </div>

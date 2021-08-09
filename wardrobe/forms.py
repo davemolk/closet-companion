@@ -15,15 +15,16 @@ class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
 class ItemForm(ModelForm):
     class Meta:
         model = Item
-        fields = ['name', 'description', 'type', 'image', 'url', 'sell', 'price']
+        fields = ['name', 'description', 'type', 'image', 'url', 'price', 'sell']
         labels = {
             'name': 'Item name',
             'description': 'Item description',
             'type': 'Item type',
             'image': 'Item image', 
             'url': 'Image url (if not uploading an image)',
-            'sell': 'For sale?',
             'price': 'Price (if item is for sale)',
+            'sell': 'For sale?',
+        
         }
 
     def __init__(self, *args, **kwargs):
