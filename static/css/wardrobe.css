@@ -195,6 +195,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
 }
 
+.form-check{
+  width:33.333%;
+  float:left;
+  justify-content: space-between;
+  /* display:inline */
+}
+
+
 /* .formPage .formWrapper {
   list-style: none;
   padding: 3.5rem 5rem;

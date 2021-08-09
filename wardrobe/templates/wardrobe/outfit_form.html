@@ -13,29 +13,25 @@
     <div class="col-lg-6 formWrapper">
       <form class="shadow p-3 mb-5 bg-body rounded" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|crispy }}
-        {% comment %} {% for field in form %}
-
-        <div class="form__field">
-            {{field.label}}
-            {{field}}
-        </div>
-        {% endfor %} {% endcomment %}
-        {% comment %} <p>next attempt</p> {% endcomment %}
-        {% comment %} <div class="row">
-        {{form.name.label}}
-        {{form.name}}
-        </div>
-        <div class="row">
-        {{form.description.label}}
-        {{form.description}}
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-          {{form.items.label}}
-          {{form.items}}
+        {% comment %} {{ form|crispy }} {% endcomment %}
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-0">
+            {{form.name|as_crispy_field}}
           </div>
-        </div> {% endcomment %}
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-0">
+            {{form.description|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="container">
+            {{form.items|as_crispy_field}}
+          </div>
+        </div> 
+
+        <p>some stuff</p>
+        
         
         <div class="row justify-content-center p-3">
           <button class="btn btn-secondary" type="submit" value="Submit!">Submit</button>

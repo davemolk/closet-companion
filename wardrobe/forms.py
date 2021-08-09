@@ -36,6 +36,12 @@ class OutfitForm(ModelForm):
     class Meta:
         model = Outfit
         fields = ['name', 'description', 'items']
+        labels = {
+            'name': 'Outfit Name',
+            'description': 'Outfit Description',
+            'items': 'Outfit Items',
+        }
+
     
     items = CustomModelMultipleChoiceField(
         queryset=None,
