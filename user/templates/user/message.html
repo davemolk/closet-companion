@@ -6,7 +6,6 @@
   <div class="content-box">
     <div class="message pt-4 text-center">
       <h2 class="message__subject ">{{message.sender}} says {{message.subject}}</h4>
-        {% comment %} <p class="message__author">(from {{message.sender}}</p> {% endcomment %}
         <div class="message__body">{{message.body|linebreaksbr}}</div>
         <p class="message__date text-center">Date sent: {{message.created}}</p>
     </div>

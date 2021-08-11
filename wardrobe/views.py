@@ -164,7 +164,6 @@ class updateOutfit(LoginRequiredMixin, UpdateView):
     model = Outfit
     form_class = OutfitForm
     template_name = 'wardrobe/outfit_form.html'
-    # success_url = reverse_lazy('items')
 
     def get_form_kwargs(self):
         kwargs = super(updateOutfit, self).get_form_kwargs()

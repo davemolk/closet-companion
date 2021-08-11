@@ -34,28 +34,13 @@
   </head>
   <body>
     {% include 'navbar.html' %}
-    {% comment %} {% include 'sidebar.html' %} {% endcomment %}
-    {% comment %} <div class="p-1 my-container active-cont"> 
-      <a class="btn border-0" id="menu-btn">
-      <i class="bx bx-menu"></i>
-      </a>  
-    </div> {% endcomment %}
-
-    {% comment %} {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-        </ul>
-        {% endif %} {% endcomment %}
+   
     {% block messages %}
         <ul class="fmessages" id="messages-list">
         {% if messages %}
             {% for message in messages %}
               <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-                {% comment %} <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button> {% endcomment %}
+                
                 {{ message }}
               </div>
             {% endfor %}
@@ -69,7 +54,6 @@
     
     {% endblock %}
 
-    {% comment %} {% include 'footer.html' %} {% endcomment %}
         
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>

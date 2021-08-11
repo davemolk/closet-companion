@@ -10,7 +10,7 @@ class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
             return mark_safe("<img src='%s'  style='height:125px;width:115px;'/>" % items.url)
         else:
             return mark_safe("<img src='%s' style='height:125px;width:115px;'/>" % items.imageURL)
-        # return "%s" % items.imageURL
+        
 
 class ItemForm(ModelForm):
     class Meta:

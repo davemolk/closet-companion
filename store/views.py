@@ -17,7 +17,6 @@ def store(request):
     cartItems = data['cartItems']
 
     items, search_query = searchItems(request)
-    # items = Item.objects.filter(sell=True)
     context = {'items': items, 'cartItems': cartItems}
     return render(request, 'store/store.html', context)
     
@@ -120,10 +119,8 @@ def processOrder(request):
 
     shipping = ShippingAddress.objects.get(order=order)
     items = order.orderitem_set.filter(order=order)
-    # print('ITEMS: ', items)
-    # print('SHIPPING:', shipping.customer, shipping.order, shipping.address, shipping.city, shipping.state, shipping.zipcode)
+   
     for item in items:
-        print('ITEM: ', item.item)
         item.item.delete()
 
     messages.success(request, 'Congrats on your new threads!')
