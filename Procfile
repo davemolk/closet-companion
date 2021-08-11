@@ -1,2 +1,2 @@
-web: gunicorn closet_companion.wsgi --log-file -
+web: gunicorn closet-companion.wsgi --log-file -
 
