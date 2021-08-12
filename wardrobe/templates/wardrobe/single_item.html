@@ -28,7 +28,7 @@
           <p class="card-text py-3">Your Price: {{ item.price }}</p>
           {% endif %}
           {% if item.tags %}
-          <div class="">Tags: 
+          <div>Tags:
           {% for tag in tags %}
             <span class="tag">
               <a class="btn btn-secondary btn-sm" href="{% url 'delete-tag' tag.id %}?next={{request.path}}">{{ tag }}</a>
@@ -36,7 +36,7 @@
             
           {% endfor %}
             <div class="d-flex flex-column">
-              <p class="text-center py-3">If a tag no longer does it for you, simply click to delete</p>
+              <p class="text-center py-3"><small>If a tag no longer does it for you, simply click it to delete</small></p>
             </div>
           </div>
           {% endif %}

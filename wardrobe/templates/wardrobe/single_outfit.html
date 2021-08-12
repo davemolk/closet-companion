@@ -27,8 +27,9 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title text-center">Outfit Name: {{ outfit.name }}</h5>
-
+          {% if outfit.description %}
           <p class="card-text py-3">Description: {{ outfit.description|linebreaksbr }}</p>
+          {% endif %}
           <div class="">
             <a class="btn btn-secondary btn-sm" href="{% url 'update-outfit' outfit.id %}">Update Outfit</a>
             <a class="btn btn-secondary btn-sm" href="{% url 'delete-outfit' outfit.id %}">Delete Outfit</a>

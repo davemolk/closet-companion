@@ -7,6 +7,8 @@
   <div class="row">
     <div class="text-center">
       <h1 class="fw-bold">YOUR OUTFITS</h1>
+      <br>
+      <p class="pt-3 text-muted">Click on any part of the outfit to see more details</p>
     </div> 
   </div>
 </div>
@@ -16,11 +18,12 @@
   <div class="container">
     <div class="row row-cols-2">
       {% for outfit in outfits %}
-      <div class="col my-4">
+      <div class="col pt-5">
         <p>Outfit Name: {{outfit.name}}</p>
-        <p>Outfit Description: {{outfit.description|linebreaksbr}}</p>
-
-        <div class="card h-100">
+        {% if outfit.description %}
+        <p>Description: {{outfit.description|linebreaksbr}}</p>
+        {% endif %}
+        <div class="card">
           <a href="{% url 'outfit' outfit.id %}">
           
           {% for item in outfit.items.all %}
