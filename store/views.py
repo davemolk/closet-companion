@@ -8,6 +8,7 @@ import datetime
 from django.contrib.auth.decorators import login_required
 from .utils import cartData, searchItems
 from django.contrib import messages
+from django.conf import settings
 
 # Create your views here.
 
@@ -50,7 +51,7 @@ def checkout(request):
     order = data['order']
     orderItems = data['orderItems']
         
-    context = {'orderItems': orderItems, 'order': order, 'cartItems': cartItems}
+    context = {'orderItems': orderItems, 'order': order, 'cartItems': cartItems, 'PAYPAL': settings.PAYPAL}
     return render(request, 'store/checkout.html', context)
 
 
