@@ -1,13 +1,6 @@
-/* :root {
-  --yellow: #ffe6a2;
-} */
-
-
 body{
   background-color: #fff;
   font-family: 'Montserrat', sans-serif;
-  /* margin-bottom: 200px; */
-  
 }
 
 .texture{
@@ -18,7 +11,6 @@ body{
 
 .box-element {
   box-shadow: hsl(0, 0%, 80%) 0 0 16px;
-  /* background-color: #fff; */
   border-radius: 4px;
   padding: 10px;
 }
@@ -56,46 +48,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /*=======================
-  Footer
-========================*/
-
-.footer {
-	background: #5a606a;
-	text-align: center;
-	color: #FFF;
-  /* position: relative; */
-  left: 0;
-  bottom: 0;
-  height: 200px;
-  width: 100%;
-}
-
-.copyright{
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding: 2rem 0;
-  /* position: relative; */
-}
-
-.copyright p{
-  font-size: 1.1rem;
-}
-
-.github{
-	font-size: 24px;
-	color: rgb(255, 255, 255);
-}
-
-/*=======================
   Cards
 ========================*/
-/* Equal-height card images, cf. https://stackoverflow.com/a/47698201/1375163*/
-/* .embed-responsive .card-img-top {
-  /* height: 18vw; */
-  /* object-fit: contain; */
-  /* width: 100%; */
-
 
 .card {
   border: none;
@@ -111,35 +65,12 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
   border: none;
 }
-/* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-  .card-img-top {
-      height: 40vw;
-  }
-} */
 
-/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .card-img-top {
       height: 35vw;
   }
 }
-
-/* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) {
-  .card-img-top {
-      height: 25vw;
-  }
-} */
-
-/* Extra large devices (large desktops, 1200px and up) */
-/* @media (min-width: 992px) {
-  .card-img-top {
-      height: 25vw;
-  }
-}
- */
-
 
 /*=======================
   Index
@@ -178,7 +109,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form__field {
-  /* margin-top: 3.5rem; */
   margin-bottom: 3.5rem;
 }
 
@@ -206,18 +136,6 @@ h1, h2, h3, h4, h5, h6 {
   display:inline;
 }
 
-/* .formPage .formWrapper {
-  list-style: none;
-  padding: 3.5rem 5rem;
-}
-
-.formPage .formWrapper__subject {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-} */
-
-
 input.input[type='text'],
 input.input[type='email'],
 input.input[type='password'],
@@ -229,7 +147,7 @@ textarea.input {
   border-radius: 0.5rem;
   border: 0.5px solid;
   transition: all 0.3s ease-in-out;
-  /* margin: 5px; */
+
 }
 
 
@@ -256,7 +174,6 @@ textarea.input {
 #cart-icon {
   width: 25px;
   display: inline-block;
-  /* margin-left: 10px; */
   align-items: center;
 }
 
@@ -382,11 +299,6 @@ textarea.input {
   margin-top: 2rem;
 }
 
-/* .messagePage .message__author {
-  font-size: 1.4rem;
-  font-weight: 300;
-} */
-
 .messagePage .message__date {
   font-size: 0.8rem;
   font-weight: 100;
@@ -418,9 +330,6 @@ textarea.input {
   text-align: center;
 }
 
-/* .alert {
-  margin-top: 5px;
-} */
 
 .alert {
   position: relative;
@@ -473,14 +382,12 @@ textarea.input {
   margin-left: 0;
 }
 
-/* for main section */
+
 .active-cont {
   margin-left: 30px;
 }
 
 #menu-btn {
-  background-color:#5a606a;
-  color: #fff;
   cursor: pointer;
   position: relative;
   display: inline-block; 
@@ -488,14 +395,6 @@ textarea.input {
   margin-left: -10px;
 }
 
-/* @media screen and (max-width: 520px){
-  .side-navbar{
-    display: none;
-  }
-} */
-/* .hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-} */
+.fa-bars{
+  font-size: 34px;
+}
