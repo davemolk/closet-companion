@@ -55,7 +55,7 @@ def signupUser(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, 'An error has occurred during registration')
+            messages.error(request, 'Ugh, as if!!! An error has occurred during registration')
             return redirect('signup')
     context = {'form': form}
     return render(request, 'user/signup.html', context)
@@ -104,7 +104,7 @@ def createMessage(request, pk):
 
             message.save()
 
-            messages.success(request, 'Message sent. Two very enthusiastic thumbs up!')
+            messages.success(request, 'Two very enthusiastic thumbs up—-message successfully sent!!!')
             return redirect('inbox')
 
     context = {'recipient': recipient, 'form': form}

@@ -6,4 +6,4 @@ setTimeout(function(){
         m[i].classList.add('hide');
        }
    }
-}, 1500);
+}, 3000);

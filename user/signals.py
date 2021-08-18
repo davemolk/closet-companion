@@ -13,8 +13,7 @@ def createProfile(sender, instance, created, **kwargs):
         profile = Profile.objects.create(
             user=user,
             username=user.username,
-            email=user.email,
-            name=user.first_name,
+            email=user.email
         )
         
         subject = 'Welcome to Closet Companion!'
@@ -35,7 +34,6 @@ def updateUser(sender, instance, created, **kwargs):
     user = profile.user
 
     if created == False:
-        user.first_name = profile.name
         user.username = profile.username
         user.email = profile.email
         user.save()
