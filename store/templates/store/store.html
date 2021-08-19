@@ -51,7 +51,7 @@
                 </a>
 
                 <div class="card-body d-flex flex-column">
-                  <p class="store-text text-center">{{item.name}} is available from {{item.owner}} for ${{item.price|floatformat:2}}</p>
+                  <p class="store-text text-center">{{item.name}}, available from {{item.owner}} for ${{item.price|floatformat:2}}</p>
                 </div>
                 <div class="card-footer text-center">
                     <button data-product={{item.id}} data-action="add" class="btn btn-sm btn-secondary add-btn update-cart">Add to Cart</button>
