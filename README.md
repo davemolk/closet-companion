@@ -1,6 +1,8 @@
 # Closet Companion
 Unlock the world of possibilities within your closet
 
+Find it here: https://closet-companion.herokuapp.com/
+
 ![Image of search page](static/images/readme1.png)
 ![Image of search page](static/images/readme3.png)
 ![Image of search page](static/images/readme2.png)
