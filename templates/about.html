@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-lg">
+    <div class="text-center">
+        <h1 class="fw-bold">ABOUT</h1>
+    </div>
+    <div class="row row-cols-2 mt-5">
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="{% static 'images/about1.png' %}" alt="">
+                <div class="card-body">
+                    <p class="card-text text-center fst-italic fw-lighter">See all the stunning items in your closet, organized by type.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img class="card-img-top"  src="{% static 'images/about2.png' %}" alt="">
+                <div class="card-body">
+                    <p class="card-text text-center fst-italic fw-lighter">Assemble items into outfits!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-2 mt-5">
+        <div class="col my-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="{% static 'images/about3.png' %}" alt="">
+                <div class="card-body">
+                    <p class="card-text text-center fst-italic fw-lighter">Did someone say shopping?</p>
+                </div>
+            </div>
+        </div>
+        <div class="col my-4">
+            <div class="card h-100">
+                <img class="card-img-top"  src="{% static 'images/about4.png' %}" alt="">
+                <div class="card-body">
+                    <p class="card-text text-center fst-italic fw-lighter">Yes!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

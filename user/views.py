@@ -12,6 +12,9 @@ from .forms import MessageForm, CustomUserCreationForm
 def index(request):
     return render(request, 'index.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 
 def loginUser(request):
     if request.user.is_authenticated:
